@@ -5,14 +5,14 @@ public class KomplexeZahlKlein2 extends KomplexeZahl {
 	public KomplexeZahlKlein2(double realanteil, double imaginaeranteil) throws KZKException {
 		super(realanteil, imaginaeranteil);
 
-		if (imaginaeranteil > 10) {
+		if (this.im() > 10) {
 			throw new KZKException();
 		}
 	}
 
 	@SuppressWarnings("serial")
 	public class KZKException extends Throwable {
-		
+
 		@Override
 		public String getMessage() {
 			try {
