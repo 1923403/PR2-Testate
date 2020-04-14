@@ -11,7 +11,7 @@ public class KomplexeZahlKlein2 extends KomplexeZahl {
 	}
 
 	@SuppressWarnings("serial")
-	public class KZKException extends Throwable {
+	public class KZKException extends Exception {
 
 		@Override
 		public String getMessage() {
