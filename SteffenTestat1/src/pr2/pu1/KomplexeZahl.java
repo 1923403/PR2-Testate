@@ -14,7 +14,26 @@ package pr2.pu1;
  *        </p>
  *        <p>
  *        This Method {@link #KomplexeZahl(double, double)} is the constructor 
- *        </P>
+ *           </P>
+ *         <p>
+ *        This Method {@link #toString()} transforms a complex number into a String 
+ *                 </P>
+ *                    
+ *            <p>
+ *        This Method {@link #add(KomplexeZahl)} adds this number with the complex number KomplexeZahl
+ *                 </P>
+ *                    <p>
+ *        This Method {@link #add(KomplexeZahl, KomplexeZahl)} adds two complex number 
+ *                 </P>
+ *                 <p>
+ *                 This Method {@link #prod(KomplexeZahl)} multiplies this number with the complex number KomplexeZahl
+ *                 </P>
+ *                    <p>
+ *        This Method {@link #add(KomplexeZahl, KomplexeZahl)} multiplies two complex number 
+ *                 </P>
+ *                    
+ *        
+ *     
  *        
  **/
  
@@ -24,24 +43,29 @@ public class KomplexeZahl {
 	private final double im;
 /**
  * 
- * @category getter
  * @return real part
+ * 
+* @category getter
  */
 	public double re() {
 		return this.re;
 	}
 	/**
 	 * 
-	 * @category getter
 	 * @return imaginary part
+	 * 
+	 * 
+	 * @category getter
 	 */
 	public double im() {
 		return this.im;
 	}
 /**
+ * 
+ * @param realanteil : real part
+ * @param imaginaeranteil : imaganary part
+ * 
  * @category constructor
- * @param realanteil
- * @param imaginaeranteil
  */
 	public KomplexeZahl(double realanteil, double imaginaeranteil) {
 		this.re = realanteil;
@@ -57,6 +81,8 @@ public class KomplexeZahl {
 	}
 /**
  * @return the complex number as String
+ * 
+ * 
  */
 	@Override
 	
@@ -64,25 +90,47 @@ public class KomplexeZahl {
 		return this.re + " + " + this.im + "i";
 	}
 /**
- * This method adds two complex numbers 
- * @param kZ 
- * @return addition of two 
+ * This method adds this and a other complex numbers 
+ * @param summand 
+ * @return sum of two complex number
+ * 
+ * @category calculation
  */
-	public KomplexeZahl add(KomplexeZahl kZ) {
-		return new KomplexeZahl((this.re + kZ.re()), (this.im + kZ.im()));
+	public KomplexeZahl add(KomplexeZahl summand) {
+		return new KomplexeZahl((this.re + summand.re()), (this.im + summand.im()));
 	}
-
-	public static KomplexeZahl add(KomplexeZahl kZ1, KomplexeZahl kZ2) {
-		return new KomplexeZahl((kZ1.re() + kZ2.re()), (kZ1.im() + kZ2.im()));
+/**
+ * This method adds two complex numbers
+ * @param summand1 
+ * @param summand2
+ * @return sum of two complex numbers
+ * 
+ * @category calculation
+ */
+	public static KomplexeZahl add(KomplexeZahl summand1, KomplexeZahl summand2) {
+		return new KomplexeZahl((summand1.re() + summand2.re()), (summand1.im() + summand2.im()));
 	}
-
-	public KomplexeZahl prod(KomplexeZahl kZ) {
-		return new KomplexeZahl((this.re * kZ.re() - this.im * kZ.im()), (this.re * kZ.im() + this.im * kZ.re()));
+/**
+ * This method multiplies this and a other complex numbers 
+ * @param factor
+ * @return product of two complex numbers
+ * 
+ * @category calculation
+ */
+	public KomplexeZahl prod(KomplexeZahl factor) {
+		return new KomplexeZahl((this.re * factor.re() - this.im * factor.im()), (this.re * factor.im() + this.im * factor.re()));
 	}
-
-	public static KomplexeZahl prod(KomplexeZahl kZ1, KomplexeZahl kZ2) {
-		return new KomplexeZahl((kZ1.re() * kZ2.re() - kZ1.im() * kZ2.im()),
-				(kZ1.re() * kZ2.im() + kZ1.im() * kZ2.re()));
+/**
+ * This method multiplies two complex numbers
+ * @param factor1
+ * @param factor2
+ * @return product of two complex number
+ * 
+ * @category calculation
+ */
+	public static KomplexeZahl prod(KomplexeZahl factor1, KomplexeZahl factor2) {
+		return new KomplexeZahl((factor1.re() * factor2.re() - factor1.im() * factor2.im()),
+				(factor1.re() * factor2.im() + factor1.im() * factor2.re()));
 	}
 
 	
