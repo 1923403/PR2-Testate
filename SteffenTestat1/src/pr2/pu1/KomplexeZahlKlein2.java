@@ -32,17 +32,6 @@ public class KomplexeZahlKlein2 extends KomplexeZahl {
 	@SuppressWarnings("serial")
 	public class KZKException extends Exception {
 
-//		@Override
-//		public String getMessage() {
-//			try {
-//				new KomplexeZahlKlein1(KomplexeZahlKlein2.this.re(), KomplexeZahlKlein2.this.im());
-//			} catch (Exception e) {
-//				return e.getMessage();
-//			}
-//
-//			return null;
-//		}
-
 		@Override
 		public String getMessage() {
 			return "Die Zahl fuer den imaginaeren Anteil ist zu groﬂ!\nReeller Anteil: " + KomplexeZahlKlein2.this.re();
