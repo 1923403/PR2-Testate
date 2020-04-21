@@ -1,16 +1,24 @@
 package pr2.pu1;
 
+/**
+ * This is a subclass from {@link KomplexeZahl}
+ * 
+ *
+ */
 public class KomplexeZahlKlein1 extends KomplexeZahl {
+	/**
+	 * 
+	 * @param realanteil      : real part
+	 * @param imaginaeranteil : imaganary part
+	 * @throws Exception if imaganary part > 10
+	 * 
+	 * @category constructor
+	 */
+	public KomplexeZahlKlein1(double realanteil, double imaginaeranteil) throws Exception {
+		super(realanteil, imaginaeranteil);
 
-	KomplexeZahlKlein1(double re, double im) throws Exception {
-
-		super(re, im);
-
-		if (im > 10) {
-			throw new Exception("Imagin‰rteil grˆﬂer 10!Realteil war " + re); //Tutor fragen this.re() oder re?
+		if (this.im() > 10) {
+			throw new Exception("Die Zahl fuer den imaginaeren Anteil ist zu groﬂ!\nReeller Anteil: " + this.re());
 		}
-
 	}
-
-	// TODO Auto-generated constructor stub
 }

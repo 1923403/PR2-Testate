@@ -1,27 +1,40 @@
 package pr2.pu1;
 
+/**
+ * This is a subclass from {@link KomplexeZahl}
+ * 
+ *
+ */
 public class KomplexeZahlKlein2 extends KomplexeZahl {
-
+	/**
+	 * 
+	 * @param realanteil      : real part
+	 * @param imaginaeranteil : imaginary part
+	 * @throws KZKException : throws an Exception if the imaginary part > 10
+	 * 
+	 * @category constructor
+	 */
 	public KomplexeZahlKlein2(double realanteil, double imaginaeranteil) throws KZKException {
 		super(realanteil, imaginaeranteil);
 
-		if (imaginaeranteil > 10) {
+		if (this.im() > 10) {
 			throw new KZKException();
 		}
 	}
 
+	/**
+	 * This is a inner Exception of {@link KomplexeZahlKlein2} And is thrown if the
+	 * imaginary part > 10
+	 * 
+	 * @category Exception
+	 */
+
 	@SuppressWarnings("serial")
 	public class KZKException extends Exception {
-		
+
 		@Override
 		public String getMessage() {
-			try {
-				new KomplexeZahlKlein1(KomplexeZahlKlein2.this.re(), KomplexeZahlKlein2.this.im());
-			} catch (Exception e) {
-				return e.getMessage();
-			}
-
-			return null;
+			return "Die Zahl fuer den imaginaeren Anteil ist zu groﬂ!\nReeller Anteil: " + KomplexeZahlKlein2.this.re();
 		}
 	}
 }
