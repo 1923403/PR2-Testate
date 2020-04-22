@@ -9,8 +9,8 @@ public class KomplexeZahlKlein1 extends KomplexeZahl {
 	/**
 	 * 
 	 * @param realanteil      : real part
-	 * @param imaginaeranteil : imaganary part
-	 * @throws Exception if imaganary part > 10
+	 * @param imaginaeranteil : imaginary part
+	 * @throws Exception if imaginary part > 10
 	 * 
 	 * @category constructor
 	 */

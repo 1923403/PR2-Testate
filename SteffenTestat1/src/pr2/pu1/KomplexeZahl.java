@@ -74,7 +74,7 @@ public class KomplexeZahl {
 	/**
 	 * 
 	 * @param realanteil      : real part
-	 * @param imaginaeranteil : imaganary part
+	 * @param imaginaeranteil : imaginary part
 	 * 
 	 * @category constructor
 	 */
