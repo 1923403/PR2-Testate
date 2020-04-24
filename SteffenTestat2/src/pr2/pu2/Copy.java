@@ -39,25 +39,29 @@ public class Copy {
 		var fileOut = new File("tmp/" + copyTo + ".txt");
 		byte[] data = null;
 
-		if (fileOut.exists()) {
-			System.err.println("Die Datei " + copyTo + " existiert bereits!");
-			System.exit(1);
-		}
-
 		try (var fis = new FileInputStream(fileIn)) {
 			data = new byte[(int) fileIn.length()];
 			fis.read(data);
 		} catch (FileNotFoundException fe) {
-			System.err.println("Die Datei " + copyFrom + " konnte nicht gefunden werden!");
+			if (fileIn.exists())
+				System.err.println("Die Datei " + copyFrom + " konnte nicht geoeffnet werden!");
+			else
+				System.err.println("Die Datei " + copyFrom + " konnte nicht gefunden werden!");
 			System.exit(1);
 		} catch (IOException ie) {
 			ie.printStackTrace();
 		}
 
+		if (fileOut.exists()) {
+			System.err.println("Die Datei " + copyTo + " existiert bereits!");
+			System.exit(1);
+		}
+
 		try (var fos = new FileOutputStream(fileOut)) {
 			fos.write(data);
 		} catch (FileNotFoundException fe) {
-			fe.printStackTrace();
+			System.err.println("Die Datei " + copyTo + " konnte nicht erstellt werden!");
+			System.exit(1);
 		} catch (IOException ie) {
 			ie.printStackTrace();
 		}
