@@ -5,13 +5,12 @@ public class Hase extends Tier {
 	public Hase() {
 		super(40);
 	}
-	
-	@Override
+
 	public static Hase create() {
 		Hase hase = new Hase();
 		hase.start();
 		Hase.instanceNumber++;
-		hase.setName();		
+		hase.setName();
 		return hase;
 	}
 }
