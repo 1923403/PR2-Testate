@@ -43,7 +43,9 @@ public class Copy {
 			data = new byte[(int) fileIn.length()];
 			fis.read(data);
 		} catch (FileNotFoundException fe) {
-			if (fileIn.exists())
+			if (fileIn.isDirectory())
+				System.err.println("Es handelt sich bei " + copyFrom + " um ein Verzeichnis!");
+			else if (fileIn.exists())
 				System.err.println("Die Datei " + copyFrom + " konnte nicht geoeffnet werden!");
 			else
 				System.err.println("Die Datei " + copyFrom + " konnte nicht gefunden werden!");
