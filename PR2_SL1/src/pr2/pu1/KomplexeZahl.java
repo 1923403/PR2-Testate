@@ -1,5 +1,7 @@
 package pr2.pu1;
 
+import pr2.pu1.KomplexeZahlKlein2.KZKException;
+
 /**
  * 
  * @author Gruppe 25: Raphael (1926543), Steffen (1923403), Floris (1921233)
@@ -88,8 +90,27 @@ public class KomplexeZahl {
 	 * @category main
 	 */
 	public static void main(String[] args) {
-		KomplexeZahl x = new KomplexeZahl(2.5, 4.5);
-		System.out.println("x = " + x);
+		
+		
+		
+			KomplexeZahlKlein2 y = null;
+			try {
+				y = new KomplexeZahlKlein2(2, 1);
+			} catch (KZKException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			KomplexeZahlKlein2 z = null;
+			try {
+				z = new KomplexeZahlKlein2(1, 2);
+			} catch (KZKException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		System.out.println(prod(y,z));
+		
+		
+		
 	}
 
 	/**
