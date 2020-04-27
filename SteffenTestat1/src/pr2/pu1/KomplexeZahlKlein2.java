@@ -10,7 +10,11 @@ public class KomplexeZahlKlein2 extends KomplexeZahl {
 	 * 
 	 * @param realanteil      : real part
 	 * @param imaginaeranteil : imaginary part
+<<<<<<< HEAD
 	 * @throws KZKException : throws an Exception if the imaginary part > 10
+=======
+	 * @throws KZKException : throws a Exeception if the imaginary part > 10
+>>>>>>> branch 'master' of https://github.com/JohnDoe2209/PR2-Testate.git
 	 * 
 	 * @category constructor
 	 */
