@@ -8,14 +8,7 @@ import java.util.Scanner;
  * 
  * @author Floris 1921233
  * 
- * @brief This class is copied from <a href=
- *        "http://services.informatik.hs-mannheim.de/~fischer/lectures/PR1_Files/programs/MyClass.java">Jörn
- *        Fischer Website</a>.
- *        <p>
- *        It can {@link #readFile(String) read} an
- *        {@link #writeFile(String , byte[]) write} text files.
- *        </p>
- *
+ * 
  */
 public class Copy {
 
