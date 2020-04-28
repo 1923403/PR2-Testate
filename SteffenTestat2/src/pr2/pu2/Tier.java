@@ -15,8 +15,8 @@ public class Tier extends Thread {
 
 	public void run() {
 		for (int i = this.health; i >= 0; i--) {
-//			System.out.println(this.getName());
-//			System.out.println("health: " + i);
+			System.out.println(this.getName());
+			System.out.println("health: " + i);
 			this.move();
 
 			try {
@@ -25,21 +25,23 @@ public class Tier extends Thread {
 				e.printStackTrace();
 			}
 		}
+		
+		Tier.create();
 
-//		System.out.println("x = " + this.x);
-//		System.out.println("y = " + this.y);
+		System.out.println("x = " + this.x);
+		System.out.println("y = " + this.y);
 	}
 
 	public static Tier create() {
-		Tier tier = new Tier((int) (rng * 100));
+		Tier tier = new Tier((int) (Math.random() * 100));
 		Tier.counter++;
 		tier.setName("Tier-" + String.format("%03d", Tier.counter));
 		tier.start();
 		return tier;
 	}
 
-	public void move() {
-		switch ((int) (rng * 5)) {
+	public synchronized void move() {
+		switch ((int) (Math.random() * 5)) {
 		case 0:
 			break;
 		case 1:
@@ -58,9 +60,11 @@ public class Tier extends Thread {
 	}
 
 	public static void main(String[] args) {
-		Tier tier = new Tier(33);
-		tier.start();
+//		Tier tier = new Tier(33);
+//		tier.start();
 
+		Tier.create();
+		Tier.create();
 		Tier.create();
 	}
 }
