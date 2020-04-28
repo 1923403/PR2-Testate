@@ -37,11 +37,19 @@ public class Copy {
 	public static void copy(String copyFrom, String copyTo) {
 		var fileIn = new File("tmp/" + copyFrom + ".txt");
 		var fileOut = new File("tmp/" + copyTo + ".txt");
-		byte[] data = null;
 
-		try (var fis = new FileInputStream(fileIn)) {
-			data = new byte[(int) fileIn.length()];
-			fis.read(data);
+		if (fileOut.exists()) {
+			System.err.println("Die Datei " + copyTo + " existiert bereits!");
+			System.exit(1);
+		}
+
+		try (var fis = new FileInputStream(fileIn); var fos = new FileOutputStream(fileOut)) {
+			var data = 0;
+
+			while ((data = fis.read()) != -1) {
+				final var b = (byte) data;
+				fos.write(b);
+			}
 		} catch (FileNotFoundException fe) {
 			if (fileIn.isDirectory())
 				System.err.println("Es handelt sich bei " + copyFrom + " um ein Verzeichnis!");
@@ -49,20 +57,6 @@ public class Copy {
 				System.err.println("Die Datei " + copyFrom + " konnte nicht geoeffnet werden!");
 			else
 				System.err.println("Die Datei " + copyFrom + " konnte nicht gefunden werden!");
-			System.exit(1);
-		} catch (IOException ie) {
-			ie.printStackTrace();
-		}
-
-		if (fileOut.exists()) {
-			System.err.println("Die Datei " + copyTo + " existiert bereits!");
-			System.exit(1);
-		}
-
-		try (var fos = new FileOutputStream(fileOut)) {
-			fos.write(data);
-		} catch (FileNotFoundException fe) {
-			System.err.println("Die Datei " + copyTo + " konnte nicht erstellt werden!");
 			System.exit(1);
 		} catch (IOException ie) {
 			ie.printStackTrace();

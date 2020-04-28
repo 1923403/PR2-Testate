@@ -2,13 +2,12 @@ package pr2.pu2;
 
 public class Tier extends Thread {
 
+	protected Thread reference = Thread.currentThread();
 	protected static double rng = Math.random();
 	protected static int counter;
 	protected int health;
-//	protected int reference;
 	protected int x;
 	protected int y;
-//	protected String name;
 
 	protected Tier(int health) {
 		this.health = health;
