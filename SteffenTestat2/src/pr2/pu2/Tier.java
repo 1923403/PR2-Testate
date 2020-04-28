@@ -14,10 +14,11 @@ public class Tier extends Thread {
 	}
 
 	public void run() {
-		for (int i = this.health; i >= 0; i--) {
-			System.out.println(this.getName());
-			System.out.println("health: " + i);
+		while (health > 0) {
+			System.out.println(
+					this.getName() + " / " + this.health + " Lebenspunkte / x = " + this.x + " / y = " + this.y);
 			this.move();
+			this.health--;
 
 			try {
 				Thread.sleep(100);
@@ -25,11 +26,6 @@ public class Tier extends Thread {
 				e.printStackTrace();
 			}
 		}
-		
-		Tier.create();
-
-		System.out.println("x = " + this.x);
-		System.out.println("y = " + this.y);
 	}
 
 	public static Tier create() {
@@ -60,11 +56,7 @@ public class Tier extends Thread {
 	}
 
 	public static void main(String[] args) {
-//		Tier tier = new Tier(33);
-//		tier.start();
-
-		Tier.create();
-		Tier.create();
-		Tier.create();
+		Tier tier = new Tier(33);
+		tier.start();
 	}
 }
