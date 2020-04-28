@@ -2,64 +2,178 @@ package pr2.pu1;
 
 import pr2.pu1.KomplexeZahlKlein2.KZKException;
 
+/**
+ * 
+ * @author Gruppe 25: Raphael (1926543), Steffen (1923403), Floris (1921233)
+ * @brief Description: This class represents <a href=
+ *        "https://de.wikibooks.org/wiki/Komplexe_Zahlen/_Darstellungsformen">complex
+ *        numbers</a>
+ * 
+ *
+ *        <p>
+ *        This Method {@link #re()} is the getter method for the real part
+ *        </p>
+ *        <p>
+ *        This Method {@link #im()} is the getter method for the imaginary part
+ * 
+ *        </p>
+ *        <p>
+ *        This Method {@link #KomplexeZahl(double, double)} is the constructor
+ *        </P>
+ *        <p>
+ *        This Method {@link #toString()} transforms a complex number into a
+ *        String
+ *        </P>
+ * 
+ *        <p>
+ *        This Method {@link #add(KomplexeZahl)} adds this number with the
+ *        complex number KomplexeZahl
+ *        </P>
+ *        <p>
+ *        This Method {@link #add(KomplexeZahl, KomplexeZahl)} adds two complex
+ *        number
+ *        </P>
+ *        <p>
+ *        This Method {@link #prod(KomplexeZahl)} multiplies this number with
+ *        the complex number KomplexeZahl
+ *        </P>
+ *        <p>
+ *        This Method {@link #add(KomplexeZahl, KomplexeZahl)} multiplies two
+ *        complex number
+ *        </P>
+ * 
+ * 
+ * 
+ * 
+ **/
+
 public class KomplexeZahl {
-	private double re;
-	private double im;
 
-	// Konstruktor
+	private final double re;
+	private final double im;
 
-	KomplexeZahl(double re, double im) {
-		this.re = re;
-		this.im = im;
-	}
-
-	// Getter
-	//
+	/**
+	 * 
+	 * @return real part
+	 * 
+	 * @category getter
+	 */
 	public double re() {
 		return this.re;
 	}
 
+	/**
+	 * 
+	 * @return imaginary part
+	 * 
+	 * 
+	 * @category getter
+	 */
 	public double im() {
 		return this.im;
 	}
 
+	/**
+	 * 
+	 * @param realanteil      : real part
+	 * @param imaginaeranteil : imaganary part
+	 * 
+	 * @category constructor
+	 */
+	public KomplexeZahl(double realanteil, double imaginaeranteil) {
+		this.re = realanteil;
+		this.im = imaginaeranteil;
+	}
+
+	/**
+	 * 
+	 * @category main
+	 */
+	public static void main(String[] args) {
+		
+		
+		
+			KomplexeZahlKlein2 y = null;
+			try {
+				y = new KomplexeZahlKlein2(2, 1);
+			} catch (KZKException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			KomplexeZahlKlein2 z = null;
+			try {
+				z = new KomplexeZahlKlein2(1, 2);
+			} catch (KZKException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		System.out.println(prod(y,z));
+		
+		
+		
+	}
+
+	/**
+	 * @return the complex number as String
+	 * 
+	 * 
+	 */
 	@Override
+
 	public String toString() {
-		return (re + " + " + im + "i");
+		return this.re + " + " + this.im + "i";
 	}
 
-	public KomplexeZahl add(KomplexeZahl toAdd) {
-		return new KomplexeZahl(toAdd.re() + this.re, toAdd.im() + this.im);
+	/**
+	 * This method adds this and a other complex numbers
+	 * 
+	 * @param summand
+	 * @return sum of two complex number
+	 * 
+	 * @category calculation
+	 */
+	public KomplexeZahl add(KomplexeZahl summand) {
+		return new KomplexeZahl((this.re + summand.re()), (this.im + summand.im()));
 	}
 
-	public KomplexeZahl prod(KomplexeZahl toMult) {
-		return new KomplexeZahl(this.re * toMult.re() - this.im * toMult.im(),
-				this.re * toMult.im() + toMult.re() * this.im);
+	/**
+	 * This method adds two complex numbers
+	 * 
+	 * @param summand1
+	 * @param summand2
+	 * @return sum of two complex numbers
+	 * 
+	 * @category calculation
+	 */
+	public static KomplexeZahl add(KomplexeZahl summand1, KomplexeZahl summand2) {
+		return new KomplexeZahl((summand1.re() + summand2.re()), (summand1.im() + summand2.im()));
 	}
 
-	public static void main(final String[] args) {
-		KomplexeZahl x = new KomplexeZahl(2.5, 4.5);
-		System.out.println("x=" + x);
+	/**
+	 * This method multiplies this and a other complex numbers
+	 * 
+	 * @param factor
+	 * @return product of two complex numbers
+	 * 
+	 * @category calculation
+	 */
+	public KomplexeZahl prod(KomplexeZahl factor) {
+		return new KomplexeZahl((this.re * factor.re() - this.im * factor.im()),
+				(this.re * factor.im() + this.im * factor.re()));
+	}
 
-		KomplexeZahlKlein1 d = null;
-		try {
-			d = new KomplexeZahlKlein1(15, 30);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			
-			System.out.println(e.getMessage());
-		}
-		System.out.println(d);
-		KomplexeZahlKlein2 e = null;
-		try {
-			e = new KomplexeZahlKlein2(15, 5);
-		} catch (KZKException exc) {
-			// TODO Auto-generated catch block
-			
-			System.out.println(exc.getMessage());
-		}
-		System.out.println(e);
-
+	/**
+	 * This method multiplies two complex numbers
+	 * 
+	 * @param factor1
+	 * @param factor2
+	 * @return product of two complex number
+	 * 
+	 * @category calculation
+	 */
+	public static KomplexeZahl prod(KomplexeZahl factor1, KomplexeZahl factor2) {
+		return new KomplexeZahl((factor1.re() * factor2.re() - factor1.im() * factor2.im()),
+				(factor1.re() * factor2.im() + factor1.im() * factor2.re()));
 	}
 
 }

@@ -9,8 +9,12 @@ public class KomplexeZahlKlein2 extends KomplexeZahl {
 	/**
 	 * 
 	 * @param realanteil      : real part
-	 * @param imaginaeranteil : imaganary part
-	 * @throws KZKException : throws a Exeception if the imganary part > 10
+	 * @param imaginaeranteil : imaginary part
+<<<<<<< HEAD
+	 * @throws KZKException : throws an Exception if the imaginary part > 10
+=======
+	 * @throws KZKException : throws a Exeception if the imaginary part > 10
+>>>>>>> branch 'master' of https://github.com/JohnDoe2209/PR2-Testate.git
 	 * 
 	 * @category constructor
 	 */
@@ -23,8 +27,8 @@ public class KomplexeZahlKlein2 extends KomplexeZahl {
 	}
 
 	/**
-	 * This is a inner Exception of {@link KomplexeZahlKlein2} And is trown if the
-	 * imaganary part > 10
+	 * This is a inner Exception of {@link KomplexeZahlKlein2} And is thrown if the
+	 * imaginary part > 10
 	 * 
 	 * @category Exception
 	 */
