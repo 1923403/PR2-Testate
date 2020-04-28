@@ -2,12 +2,13 @@ package pr2.pu2;
 
 public class Tier extends Thread {
 
-	protected static int instanceNumber;
+	protected static double rng = Math.random();
+	protected static int counter;
+	protected int health;
+//	protected int reference;
 	protected int x;
 	protected int y;
-	protected int health;
-	protected int rNG = (int) (Math.random() * 100);
-	protected String name;
+//	protected String name;
 
 	protected Tier(int health) {
 		this.health = health;
@@ -15,7 +16,7 @@ public class Tier extends Thread {
 
 	public void run() {
 		for (int i = this.health; i >= 0; i--) {
-//			System.out.println(name);
+//			System.out.println(this.getName());
 //			System.out.println("health: " + i);
 			this.move();
 
@@ -25,27 +26,21 @@ public class Tier extends Thread {
 				e.printStackTrace();
 			}
 		}
-		
+
 //		System.out.println("x = " + this.x);
 //		System.out.println("y = " + this.y);
 	}
 
 	public static Tier create() {
-		Tier tier = new Tier((int) (Math.random() * 100));
+		Tier tier = new Tier((int) (rng * 100));
+		Tier.counter++;
+		tier.setName("Tier-" + String.format("%03d", Tier.counter));
 		tier.start();
-		Tier.instanceNumber++;
-		tier.setName();
 		return tier;
 	}
 
-	protected void setName() {
-		this.name = "Tier-" + String.format("%03d", instanceNumber);
-	}
-
 	public void move() {
-		int random = (int) (Math.random() * 5);
-
-		switch (random) {
+		switch ((int) (rng * 5)) {
 		case 0:
 			break;
 		case 1:
