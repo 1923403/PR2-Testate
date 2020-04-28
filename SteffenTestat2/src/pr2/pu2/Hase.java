@@ -2,7 +2,7 @@ package pr2.pu2;
 
 public class Hase extends Tier {
 	
-	public static int counter;
+	protected static int counter;
 
 	public Hase() {
 		super(40);
