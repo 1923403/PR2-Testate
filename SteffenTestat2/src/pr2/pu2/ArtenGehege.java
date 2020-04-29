@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class ArtenGehege<E extends Tier> {
 
-	private ArrayList<E> gehege = new ArrayList<>();
+	protected ArrayList<E> gehege;
+	
+	public ArtenGehege() {
+		this.gehege = new ArrayList<>();
+	}
 
 	public void einsperren(E tier) {
 		gehege.add(tier);
