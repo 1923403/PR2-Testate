@@ -2,9 +2,9 @@ package pr2.pu2;
 
 public class Tier extends Thread {
 
-	protected Thread reference = Thread.currentThread();
-	protected static double rng = Math.random();
 	protected static int counter;
+	protected static double rng = Math.random();
+	protected Thread reference = Thread.currentThread();
 	protected int health;
 	protected int x;
 	protected int y;
@@ -15,8 +15,6 @@ public class Tier extends Thread {
 
 	public void run() {
 		while (health > 0) {
-			System.out.println(
-					this.getName() + " / " + this.health + " Lebenspunkte / x = " + this.x + " / y = " + this.y);
 			this.move();
 			this.health--;
 
@@ -26,6 +24,9 @@ public class Tier extends Thread {
 				e.printStackTrace();
 			}
 		}
+
+		System.out.println(this.getName() + " / " + String.format("%02d", this.health) + " Lebenspunkte / x = " + this.x
+				+ " / y = " + this.y);
 	}
 
 	public static Tier create() {
