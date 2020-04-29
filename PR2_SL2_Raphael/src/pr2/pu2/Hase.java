@@ -3,17 +3,15 @@ package pr2.pu2;
 public class Hase extends Tier {
 	static int hasenCounter = 0;
 
-	
-	protected Hase(int hp) {
-		super(hp);
+	protected Hase() {
+		super(40);
 		// TODO Auto-generated constructor stub
 	}
 
 	public static Hase create() {
-		Hase hase = new Hase(40);
+		Hase hase = new Hase();
 		hasenCounter += 1;
 		hase.setName("Hase-" + hasenCounter);
-
 		hase.start();
 		return hase;
 	}
