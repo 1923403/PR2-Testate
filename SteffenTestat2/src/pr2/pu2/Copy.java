@@ -55,6 +55,8 @@ public class Copy {
 				System.err.println("Es handelt sich bei " + copyFrom + " um ein Verzeichnis!");
 			else if (fileIn.exists())
 				System.err.println("Die Datei " + copyFrom + " konnte nicht geoeffnet werden!");
+			else if (!fileOut.exists())
+				System.err.println("Die Datei " + copyTo + " konnte nicht erstellt werden");
 			else
 				System.err.println("Die Datei " + copyFrom + " konnte nicht gefunden werden!");
 			System.exit(1);
