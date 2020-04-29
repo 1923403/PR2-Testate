@@ -1,62 +1,77 @@
 package pr2.pu2;
 
+public class Tier extends Thread implements Comparable{
 
-public class Tier extends Thread {
-	protected int x, y, hp;
-	static int counter = 0;
-	protected static int rng = (int) (Math.random() * 100);
+	protected Thread reference = Thread.currentThread();
+	protected static double rng = Math.random();
+	protected static int counter;
+	protected int health;
+	protected int x;
+	protected int y;
 
-	protected Tier(int hp) {
-		this.hp = hp;
+	protected Tier(int health) {
+		this.health = health;
 	}
 	
-
-	public static void main(String[] args) {
-		Tier a = new Tier(33);
-		a.start();
-
-
+	public int getHealth() {
+		return this.health;
 	}
 
-
 	public void run() {
-		while (hp > 0) {
+		while (health > 0) {
+			System.out.println(
+					this.getName() + " / " + this.health + " Lebenspunkte / x = " + this.x + " / y = " + this.y);
 			this.move();
-			hp -= 1;
+			this.health--;
+
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println(this.getName() + " has " + hp + " and is at x = "+x+" and y = "+y);
-
 		}
 	}
 
 	public static Tier create() {
-		Tier tier = new Tier(rng);
-		counter += 1;
-		tier.setName("Tier-" + counter);
-
+		Tier tier = new Tier((int) (Math.random() * 100));
+		Tier.counter++;
+		tier.setName("Tier-" + String.format("%03d", Tier.counter));
 		tier.start();
 		return tier;
 	}
 
-	public void move() {
-		int d = (int) (Math.random() * 5);
-		if (d == 1) {
-			x += 1;
-		} else if (d == 2) {
-			x -= 1;
-		} else if (d == 3) {
-			y += 1;
-		} else if (d == 4) {
-			y -= 1;
-		} else {
-			}
-		
-
+	public synchronized void move() {
+		switch ((int) (Math.random() * 5)) {
+		case 0:
+			break;
+		case 1:
+			this.x++;
+			break;
+		case 2:
+			this.x--;
+			break;
+		case 3:
+			this.y++;
+			break;
+		case 4:
+			this.y--;
+			break;
+		}
 	}
 
+	public static void main(String[] args) {
+		Tier tier = new Tier(33);
+		tier.start();
+	}
+
+	@Override
+	public int compareTo(Object o) {
+     if(((Tier) o).getHealth() == this.health) {
+		return 0;
+	}else if (((Tier) o).getHealth() > this.health) {
+		return 1;
+	}else {
+	return 2;
+	}
+     }
 }

@@ -1,80 +1,69 @@
-
 package pr2.pu2;
 
-import java.io.*;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-/**
- * 
- * @author Floris 1921233
- * 
- * 
- */
 public class Copy {
 
-	public Copy() {
+	public static void main(String[] args) {
+		var in = new BufferedReader(new InputStreamReader(System.in));
+		var copyFrom = "";
+		var copyTo = "";
 
+		System.out.println("Von welcher Datei soll der Text kopiert werden?");
+
+		try {
+			copyFrom = in.readLine();
+		} catch (IOException ie) {
+			System.out.println(ie.getMessage());
+		}
+
+		System.out.println("In welche Datei soll der Text kopiert werden?");
+
+		try {
+			copyTo = in.readLine();
+		} catch (IOException ie) {
+			System.out.println(ie.getMessage());
+		}
+
+		Copy.copy(copyFrom, copyTo);
 	}
 
-	public static void main(String[] arg) throws IOException {
-		Copy copy = new Copy();
-		Scanner sc = new Scanner(System.in);
+	public static void copy(String copyFrom, String copyTo) {
+		var fileIn = new File("tmp/" + copyFrom + ".txt");
+		var fileOut = new File("tmp/" + copyTo + ".txt");
 
-		// Eingabe File
-		System.out.println("Geben Sie die zu kopierende Datei ein");
-
-		String infile = new String(sc.next());
-
-		// Ausgabe File
-		System.out.println("In welche Datei soll " + infile + "kopiert werden?");
-		String outfile = new String(sc.next());
-		copy.copy(infile, outfile);
-	}
-
-	private void copy(String inFile, String outFile) {
-		var in = new File("tmp/" + inFile + ".txt");
-		var out = new File("tmp/" + outFile + ".txt");
-	
-		if (out.exists()) {
-			System.err.println("Die Datei " + outFile + " existiert bereits!");
+		if (fileOut.exists()) {
+			System.err.println("Die Datei " + copyTo + " existiert bereits!");
 			System.exit(1);
 		}
-		try (var fis = new FileInputStream(inFile)) {
-			try (var fos = new FileOutputStream(outFile)) {
 
-				var daten = 0;
+		try (var fis = new FileInputStream(fileIn); var fos = new FileOutputStream(fileOut)) {
+			var data = 0;
 
-				while ((daten = fis.read()) != -1) {
-					System.out.println(daten);
-					fos.write((byte) daten);
-					// fos.close();
-
-				}
+			while ((data = fis.read()) != -1) {
+				final var b = (byte) data;
+				fos.write(b);
 			}
-			catch (FileNotFoundException fe) {
-				fe.printStackTrace();
-				System.err.println("Die Datei " + outFile + " konnte nicht erstellt werden!");
+		} catch (FileNotFoundException fe) {
+			if (fileIn.isDirectory())
+				System.err.println("Es handelt sich bei " + copyFrom + " um ein Verzeichnis!");
+			else if (fileIn.exists())
+				System.err.println("Die Datei " + copyFrom + " konnte nicht geoeffnet werden!");
+			else if(fileOut.exists() == false) {
+				System.err.println("Die Datei " + copyTo + " konnte nicht erstellt werden!");
 				System.exit(1);
-			} 
-
-		
-		} catch (FileNotFoundException ex) {
-				if (in.isDirectory())
-					System.err.println("Es handelt sich bei " + inFile + " um ein Verzeichnis!");
-				else if (in.exists())
-					System.err.println("Die Datei " + inFile + " konnte nicht geoeffnet werden!");
-				else
-					System.err.println("Die Datei " + inFile + " konnte nicht gefunden werden!");
-				System.exit(1);
-
-			} catch (IOException ex) {
-				ex.printStackTrace();
 			}
-		
+			else
+				System.err.println("Die Datei " + copyFrom + " konnte nicht gefunden werden!");
+			System.exit(1);
+		} catch (IOException ie) {
+			ie.printStackTrace();
+		}
 	}
-
 }
-
-
-
-
