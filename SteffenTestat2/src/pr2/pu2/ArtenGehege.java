@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class ArtenGehege<E extends Tier> {
 
 	protected ArrayList<E> gehege;
-	
+
 	public ArtenGehege() {
 		this.gehege = new ArrayList<>();
 	}
@@ -30,5 +30,7 @@ public class ArtenGehege<E extends Tier> {
 		for (var i : hasenstall.gehege) {
 			System.out.println(i);
 		}
+
+		System.out.println(hasenstall.gehege.get(0).health);
 	}
 }
