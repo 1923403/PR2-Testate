@@ -19,8 +19,8 @@ public class Tier extends Thread implements Comparable{
 
 	public void run() {
 		while (health > 0) {
-			System.out.println(
-					this.getName() + " / " + this.health + " Lebenspunkte / x = " + this.x + " / y = " + this.y);
+		//	System.out.println(
+		//			this.getName() + " / " + this.health + " Lebenspunkte / x = " + this.x + " / y = " + this.y);
 			this.move();
 			this.health--;
 
@@ -30,6 +30,7 @@ public class Tier extends Thread implements Comparable{
 				e.printStackTrace();
 			}
 		}
+		System.out.println(this.getName() +" ist Tod.");
 	}
 
 	public static Tier create() {

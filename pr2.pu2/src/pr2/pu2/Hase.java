@@ -12,6 +12,7 @@ public class Hase extends Tier {
 		Hase hase = new Hase();
 		Hase.counter++;
 		hase.setName("Hase-" + String.format("%03d", Hase.counter));
+		System.out.println(hase.getName());
 		hase.start();
 		return hase;
 	}
