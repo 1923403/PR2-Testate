@@ -4,6 +4,7 @@ package pr2.pu2;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -16,13 +17,15 @@ static Map<String , ArtenGehege<? extends Tier>>  zooMap = new TreeMap<>();
 	public Iterator<Tier> iterator() {
 		
 		String[] gehegeNamen =  zooMap.keySet().toArray(new String[zooMap.size()]);
-		int zeiger = 0;
-		int max = gehegeNamen.length-1;
+		
 		return new Iterator<Tier>() {
-
+			int gehegeZeiger = 0;
+			int tierZeiger = -1;
+			int max = gehegeNamen.length-1;
+			
 			@Override
 			public boolean hasNext() {
-    if (zeiger< max ) {
+    if (gehegeZeiger< max ) {
     	return true;
     }
     else {	return false;}
@@ -30,10 +33,19 @@ static Map<String , ArtenGehege<? extends Tier>>  zooMap = new TreeMap<>();
 
 			@Override
 			public Tier next() {
-		  int stelle = 0;
-		  ArtenGehege artGehege = 	zooMap.get(gehegeNamen[zeiger]);
-		  stelle++;
-		  return artGehege.getAnimal(stelle);
+		  
+				ArtenGehege artGehege = 	zooMap.get(gehegeNamen[gehegeZeiger]);
+		  if(tierZeiger < artGehege.getSize(artGehege)-1) {
+		  tierZeiger++ ;
+		  } else if (tierZeiger>=artGehege.getSize(artGehege)-1 && gehegeZeiger < max ) {
+			  tierZeiger = 0;
+			  gehegeZeiger++;
+			  artGehege = zooMap.get(gehegeNamen[gehegeZeiger]);
+		  } else {
+			  throw new NoSuchElementException();
+		  }
+		  
+		  return artGehege.getAnimal(tierZeiger);
 				
 			}
 			
@@ -51,11 +63,23 @@ static Map<String , ArtenGehege<? extends Tier>>  zooMap = new TreeMap<>();
 		hasenstall.einsperren(hase1);
 		hasenstall.einsperren(hase2);
 		hasenstall.einsperren(hase3);
+		
+		
+		var tierstall = new ArtenGehege<Tier>();
+		var tier1 = new Tier(35);
+		var tier2 = new Tier(16);
+		var tier3 = new Tier(64);
+
+		tierstall.einsperren(tier1);
+		tierstall.einsperren(tier2);
+		tierstall.einsperren(tier3);
 		zooMap.put("hasenstall", hasenstall);
+		zooMap.put("tierstall", tierstall);
    Zoo zoo = new Zoo();
 		Iterator<Tier> it =    zoo.iterator();
 			
-	    	   
-		System.out.println( it.next());
+	    	for(;;) {   
+		System.out.println( it.next().getHealth());
+	    	}
 		}
 }
