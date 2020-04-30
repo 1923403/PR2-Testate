@@ -17,6 +17,7 @@ public class Zoo implements Iterable<ArtenGehege> {
 		//Unterschied var zu Hase?
 		Hase hase2 = new Hase();
 		//var hase3 = new Hase();
+		Hase.create();
 
 		hasenstall.einsperren(hase1);
 		hasenstall.einsperren(hase2);
@@ -26,7 +27,7 @@ public class Zoo implements Iterable<ArtenGehege> {
 		 Iterator<Hase> it = hasenstall.iterator();
 		while(it.hasNext()) {
 		      Hase obj = it.next();
-		      System.out.println(obj);
+		      System.out.println(obj.getName());
 		    }
 
 	}

@@ -1,7 +1,7 @@
 package pr2.pu2;
 
 public class Hase extends Tier {
-	static int hasenCounter = 0;
+	static int counter = 0;
 
 	protected Hase() {
 		super(40);
@@ -9,8 +9,9 @@ public class Hase extends Tier {
 	}
 
 	public static Hase create() {
+		Hase.counter += 1;
 		Hase hase = new Hase();
-		hasenCounter += 1;
+		
 		hase.setName("Hase-" + String.format("%03d", Hase.counter));
 		hase.start();
 		return hase;
