@@ -6,6 +6,11 @@ public class Tier extends Thread {
 	protected static double rng = Math.random();
 	protected Thread reference = Thread.currentThread();
 	protected int health;
+	
+	public int getHealth() {
+		return health;
+	}
+
 	protected int x;
 	protected int y;
 
