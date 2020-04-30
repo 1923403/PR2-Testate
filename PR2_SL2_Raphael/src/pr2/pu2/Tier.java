@@ -1,5 +1,8 @@
 package pr2.pu2;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Tier extends Thread {
@@ -57,28 +60,53 @@ public class Tier extends Thread {
 //		A2
 //		Tier tier = new Tier(33);
 //		tier.start();
-
+		
 //		A7
 //		var hasenstall = new ArtenGehege<Hase>();
-//		var hase1 = new Hase();		
-//		var hase2 = new Hase();
-//		var hase3 = new Hase();
-//		hasenstall.einsperren(hase1);
-//		hasenstall.einsperren(hase2);
-//		hasenstall.einsperren(hase3);
-//		System.out.println(hasenstall.size());
-
-		var hasenstall = new ArtenGehege<Hase>();
-
-		for (int i = 0; i < 3; i++) {
-			hasenstall.einsperren(new Hase());
-		}
+//		for (int i = 0; i < 3; i++) {
+//			hasenstall.einsperren(new Hase());
+//		}
 
 		
-		Iterator<Hase> it = hasenstall.iterator();
+		// A8 & A9
+		var tierStall = new ArtenGehege<Tier>();
+		tierStall.einsperren(new Tier(4));
+		tierStall.einsperren(new Tier(7));
+		tierStall.einsperren(new Tier(2));
+		
+		var hasenStall = new ArtenGehege<Hase>();
+		hasenStall.einsperren(new Hase());
+		
+		HashMap<String, ArtenGehege<?>> zooMap = new HashMap<String, ArtenGehege<?>>();
+		zooMap.put("Tierstall",tierStall);
+		zooMap.put("Hasenstall",hasenStall);
+		
+		
+		ArrayList<Tier> all = new ArrayList<>();
+		
+		all.addAll(tierStall);
+		all.addAll(hasenStall);
+		
+
+		Collections.sort(all, new HpComparator());
+		
+		Iterator<Tier> it = all.iterator();
 		while (it.hasNext()) {
 			System.out.println(it.next().hp);
 		}
+
+//		System.out.println("\nSorted by hp");
+//		for (int i = 0; i < tierStall.size(); i++)
+//		System.out.println(tierStall.get(i));
+		
+//		System.out.println(hasenstall.size());
+
+
+
+//		Iterator<Hase> it = hasenstall.iterator();
+//		while (it.hasNext()) {
+//			System.out.println(it.next().hp);
+//		}
 
 	}
 }
