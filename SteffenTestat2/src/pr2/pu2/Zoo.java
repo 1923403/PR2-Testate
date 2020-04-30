@@ -7,7 +7,8 @@ import java.util.Map;
 class Zoo implements Iterable<Tier> {
 
 	protected Map<String, ArtenGehege<Tier>> map = new HashMap<>();
-
+	
+	asddasd
 	@Override
 	public Iterator<Tier> iterator() {
 		// TODO Auto-generated method stub
