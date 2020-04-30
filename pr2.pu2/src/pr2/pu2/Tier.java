@@ -70,9 +70,9 @@ public class Tier extends Thread implements Comparable{
      if(((Tier) o).getHealth() == this.health) {
 		return 0;
 	}else if (((Tier) o).getHealth() > this.health) {
-		return 1;
+		return -1;
 	}else {
-	return 2;
+	return 1;
 	}
      }
 }
