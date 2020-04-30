@@ -57,7 +57,7 @@ public class Tier extends Thread {
 //		A2
 //		Tier tier = new Tier(33);
 //		tier.start();
-		
+
 //		A7
 //		var hasenstall = new ArtenGehege<Hase>();
 //		var hase1 = new Hase();		
@@ -67,23 +67,16 @@ public class Tier extends Thread {
 //		hasenstall.einsperren(hase2);
 //		hasenstall.einsperren(hase3);
 //		System.out.println(hasenstall.size());
+
+		var hasenstall = new ArtenGehege<Hase>();
+
+		for (int i = 0; i < 3; i++) {
+			hasenstall.einsperren(new Hase());
+		}
+
 		
-//		A8
-		ArtenGehege<Hase> hasenstall = new ArtenGehege<>();
-
-		var hase1 = new Hase();		
-		var hase2 = new Hase();
-		var hase3 = new Hase();
-
-		hasenstall.einsperren(hase1);
-		hasenstall.einsperren(hase2);
-		hasenstall.einsperren(hase3);
-
-		System.out.println(hasenstall.size());
-
 		Iterator<Hase> it = hasenstall.iterator();
 		while (it.hasNext()) {
-
 			System.out.println(it.next().hp);
 		}
 
