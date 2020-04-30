@@ -11,7 +11,9 @@ public class MyIterator<E extends Tier> implements Iterator<E> {
 	private List<E> list = new ArrayList<>();
 
 	public MyIterator(Map<String, ArtenGehege<E>> map) {
-		list.addAll(map.values().iterator().next().gehege);
+		for (String key : map.keySet()) {
+			list.addAll(map.get(key).gehege);
+		}
 	}
 
 	public boolean hasNext() {
