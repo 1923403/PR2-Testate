@@ -13,6 +13,8 @@ public class ArtenGehege<E> extends ArrayList<E> {
 		ArtenGehege<Hase> hasenstall = new ArtenGehege<>();
 
 		Hase hase1 = new Hase();
+		
+		//Unterschied var zu Hase?
 		Hase hase2 = new Hase();
 		var hase3 = new Hase();
 

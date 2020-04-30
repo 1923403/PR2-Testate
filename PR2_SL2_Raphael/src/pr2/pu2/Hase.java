@@ -11,7 +11,7 @@ public class Hase extends Tier {
 	public static Hase create() {
 		Hase hase = new Hase();
 		hasenCounter += 1;
-		hase.setName("Hase-" + hasenCounter);
+		hase.setName("Hase-" + String.format("%03d", Hase.counter));
 		hase.start();
 		return hase;
 	}

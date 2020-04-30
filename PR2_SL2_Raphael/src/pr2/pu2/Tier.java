@@ -4,6 +4,7 @@ public class Tier extends Thread {
 	protected int x, y, hp;
 	protected static int counter = 0;
 	protected static double rngSeed = Math.random();
+	protected Thread reference = Thread.currentThread();
 
 	protected Tier(int hp) {
 		this.hp = hp;
@@ -28,14 +29,15 @@ public class Tier extends Thread {
 	public static Tier create() {
 		Tier tier = new Tier((int) (rngSeed * 100));
 		counter += 1;
-		tier.setName("Tier-" + counter);
+		tier.setName("Tier-" + String.format("%03d", Tier.counter));
 		tier.start();
 		return tier;
 	}
 
 	public void move() {
-		//Achten Sie bei der Umsetzung darauf, dass die Methode auch von anderen Threads
-		//aufgerufen werden kann.
+		// Achten Sie bei der Umsetzung darauf, dass die Methode auch von anderen
+		// Threads
+		// aufgerufen werden kann.
 		synchronized (this) {
 			int d = (int) (rngSeed * 5);
 			if (d == 1) {
