@@ -1,5 +1,7 @@
 package pr2.pu2;
 
+import java.util.Iterator;
+
 public class Tier extends Thread {
 	protected int x, y, hp;
 	protected static int counter = 0;
@@ -14,7 +16,7 @@ public class Tier extends Thread {
 	public void run() {
 		while (hp > 0) {
 			this.move();
-			this.hp -= 1;
+			this.hp--;
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -52,7 +54,38 @@ public class Tier extends Thread {
 	}
 
 	public static void main(String[] args) {
-		Tier tier = new Tier(33);
-		tier.start();
+//		A2
+//		Tier tier = new Tier(33);
+//		tier.start();
+		
+//		A7
+//		var hasenstall = new ArtenGehege<Hase>();
+//		var hase1 = new Hase();		
+//		var hase2 = new Hase();
+//		var hase3 = new Hase();
+//		hasenstall.einsperren(hase1);
+//		hasenstall.einsperren(hase2);
+//		hasenstall.einsperren(hase3);
+//		System.out.println(hasenstall.size());
+		
+//		A8
+		ArtenGehege<Hase> hasenstall = new ArtenGehege<>();
+
+		var hase1 = new Hase();		
+		var hase2 = new Hase();
+		var hase3 = new Hase();
+
+		hasenstall.einsperren(hase1);
+		hasenstall.einsperren(hase2);
+		hasenstall.einsperren(hase3);
+
+		System.out.println(hasenstall.size());
+
+		Iterator<Hase> it = hasenstall.iterator();
+		while (it.hasNext()) {
+
+			System.out.println(it.next().hp);
+		}
+
 	}
 }
