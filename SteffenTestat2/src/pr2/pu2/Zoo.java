@@ -6,12 +6,12 @@ import java.util.Map;
 
 class Zoo implements Iterable<Tier> {
 
-	protected Map<String, ArtenGehege<Tier>> map = new HashMap<>();
+	protected Map<String, ArtenGehege<? extends Tier>> map = new HashMap<>();
 
 	@Override
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Iterator<Tier> iterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new MyIterator(map);
 	}
 
 	public static void main(String[] args) {
@@ -36,16 +36,10 @@ class Zoo implements Iterable<Tier> {
 		zoo.map.put("Hasenstall", hasenstall);
 		zoo.map.put("Tierstall", tierstall);
 
-		@SuppressWarnings("unchecked")
-		Iterator<ArtenGehege> ia = zoo.map.values().iterator();
-		Iterator<Tier> it = ia.next().gehege.iterator();
+		var iterator = zoo.iterator();
 
-		while (ia.hasNext()) {
-			System.out.println(ia.next());
-		}
-
-		while (it.hasNext()) {
-			System.out.println(it.next());
+		while (iterator.hasNext()) {
+			System.out.println(iterator.next().getName());
 		}
 	}
 }
