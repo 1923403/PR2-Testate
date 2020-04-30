@@ -5,6 +5,7 @@ package pr2.pu2;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.TreeMap;
 
 
 public class Zoo implements Iterable<Tier> {
-static Map<String , ArtenGehege<? extends Tier>>  zooMap = new TreeMap<>();
+static Map<String , ArtenGehege<? extends Tier>>  zooMap = new HashMap<>();
 
     
 	@Override

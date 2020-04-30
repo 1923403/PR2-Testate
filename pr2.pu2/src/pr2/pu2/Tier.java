@@ -1,6 +1,6 @@
 package pr2.pu2;
 
-public class Tier extends Thread implements Comparable{
+public class Tier extends Thread {
 
 	protected Thread reference = Thread.currentThread();
 	protected static double rng = Math.random();
@@ -65,14 +65,5 @@ public class Tier extends Thread implements Comparable{
 		tier.start();
 	}
 
-	@Override
-	public int compareTo(Object o) {
-     if(((Tier) o).getHealth() == this.health) {
-		return 0;
-	}else if (((Tier) o).getHealth() > this.health) {
-		return -1;
-	}else {
-	return 1;
-	}
-     }
+
 }
