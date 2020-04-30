@@ -5,7 +5,7 @@ public class Tier extends Thread implements Comparable{
 	protected Thread reference = Thread.currentThread();
 	protected static double rng = Math.random();
 	protected static int counter;
-	protected int health;
+	private int health;
 	protected int x;
 	protected int y;
 
