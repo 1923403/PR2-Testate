@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Zoo<Artengehege> implements Iterable<String> {
+class Zoo implements Iterable<Tier> {
 
-	protected Map<String, Artengehege> map = new HashMap<>();
+	protected Map<String, ArtenGehege> map = new HashMap<>();
 
 	@Override
-	public Iterator<String> iterator() {
+	public Iterator<Tier> iterator() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -13,7 +13,7 @@ public class Tier extends Thread {
 		this.health = health;
 	}
 
-	public synchronized void run() {
+	public void run() {
 		while (health > 0) {
 			this.move();
 			this.health--;
