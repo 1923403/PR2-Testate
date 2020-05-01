@@ -95,6 +95,8 @@ public class Tier extends Thread {
 			System.out.println(it.next().hp);
 		}
 
+		
+		
 //		System.out.println("\nSorted by hp");
 //		for (int i = 0; i < tierStall.size(); i++)
 //		System.out.println(tierStall.get(i));
