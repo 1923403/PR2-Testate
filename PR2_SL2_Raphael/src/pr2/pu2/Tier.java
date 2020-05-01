@@ -62,10 +62,10 @@ public class Tier extends Thread {
 //		tier.start();
 		
 //		A7
-//		var hasenstall = new ArtenGehege<Hase>();
-//		for (int i = 0; i < 3; i++) {
-//			hasenstall.einsperren(new Hase());
-//		}
+		var hasenstall = new ArtenGehege<Hase>();
+		for (int i = 0; i < 3; i++) 
+			hasenstall.einsperren(new Hase());
+		
 
 		
 		// A8 & A9
