@@ -39,7 +39,7 @@ class Zoo implements Iterable<Tier> {
 		var iterator = zoo.iterator();
 
 		while (iterator.hasNext()) {
-			System.out.println(iterator.next().getName());
+			System.out.println(iterator.next().health);
 		}
 	}
 }
