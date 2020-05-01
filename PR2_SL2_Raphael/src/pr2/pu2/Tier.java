@@ -70,7 +70,7 @@ public class Tier extends Thread {
 		
 		// A8 & A9
 		var tierStall = new ArtenGehege<Tier>();
-		tierStall.einsperren(new Tier(4));
+		tierStall.einsperren(Tier.create());
 		tierStall.einsperren(new Tier(7));
 		tierStall.einsperren(new Tier(2));
 		
