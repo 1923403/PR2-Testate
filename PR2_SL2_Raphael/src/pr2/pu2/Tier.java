@@ -62,15 +62,15 @@ public class Tier extends Thread {
 //		tier.start();
 		
 //		A7
-//		var hasenstall = new ArtenGehege<Hase>();
-//		for (int i = 0; i < 3; i++) {
-//			hasenstall.einsperren(new Hase());
-//		}
+		var hasenstall = new ArtenGehege<Hase>();
+		for (int i = 0; i < 3; i++) 
+			hasenstall.einsperren(new Hase());
+		
 
 		
 		// A8 & A9
 		var tierStall = new ArtenGehege<Tier>();
-		tierStall.einsperren(new Tier(4));
+		tierStall.einsperren(Tier.create());
 		tierStall.einsperren(new Tier(7));
 		tierStall.einsperren(new Tier(2));
 		
@@ -95,6 +95,8 @@ public class Tier extends Thread {
 			System.out.println(it.next().hp);
 		}
 
+		
+		
 //		System.out.println("\nSorted by hp");
 //		for (int i = 0; i < tierStall.size(); i++)
 //		System.out.println(tierStall.get(i));
