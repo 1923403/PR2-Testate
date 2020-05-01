@@ -4,7 +4,7 @@ public class Hase extends Tier {
 
 	protected static int counter;
 
-	public Hase() {
+	protected Hase() {
 		super(40);
 	}
 

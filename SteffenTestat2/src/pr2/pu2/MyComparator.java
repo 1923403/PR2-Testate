@@ -5,6 +5,6 @@ import java.util.Comparator;
 public class MyComparator<E extends Tier> implements Comparator<E> {
 
 	public int compare(E tier1, E tier2) {
-		return tier2.health - tier1.health;
+		return tier2.hp - tier1.hp;
 	}
 }

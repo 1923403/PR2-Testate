@@ -5,33 +5,23 @@ public class Tier extends Thread {
 	protected static int counter;
 	protected static double rng = Math.random();
 	protected Thread reference = Thread.currentThread();
-	protected int health;
-	
-	public int getHealth() {
-		return health;
-	}
+	protected int hp, x, y;
 
-	protected int x;
-	protected int y;
-
-	protected Tier(int health) {
-		this.health = health;
+	protected Tier(int hp) {
+		this.hp = hp;
 	}
 
 	public void run() {
-		while (health > 0) {
+		while (hp > 0) {
 			this.move();
-			this.health--;
+			this.hp--;
 
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				System.err.println(e.getMessage());
 			}
 		}
-
-		System.out.println(this.getName() + " / " + String.format("%02d", this.health) + " Lebenspunkte / x = " + this.x
-				+ " / y = " + this.y);
 	}
 
 	public static Tier create() {

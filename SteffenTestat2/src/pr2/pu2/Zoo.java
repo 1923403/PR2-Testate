@@ -32,6 +32,7 @@ class Zoo implements Iterable<Tier> {
 		tierstall.einsperren(tier1);
 		tierstall.einsperren(tier2);
 		tierstall.einsperren(tier3);
+		tierstall.einsperren(tier3);
 
 		zoo.map.put("Hasenstall", hasenstall);
 		zoo.map.put("Tierstall", tierstall);
@@ -39,6 +40,6 @@ class Zoo implements Iterable<Tier> {
 		var iterator = zoo.iterator();
 
 		while (iterator.hasNext())
-			System.out.println(iterator.next().health);
+			System.out.println(iterator.next().hp);
 	}
 }

@@ -20,7 +20,7 @@ public class Copy {
 		try {
 			copyFrom = in.readLine();
 		} catch (IOException ie) {
-			System.out.println(ie.getMessage());
+			System.err.println(ie.getMessage());
 		}
 
 		System.out.println("In welche Datei soll der Text kopiert werden?");
@@ -28,7 +28,7 @@ public class Copy {
 		try {
 			copyTo = in.readLine();
 		} catch (IOException ie) {
-			System.out.println(ie.getMessage());
+			System.err.println(ie.getMessage());
 		}
 
 		Copy.copy(copyFrom, copyTo);
@@ -47,21 +47,23 @@ public class Copy {
 			var data = 0;
 
 			while ((data = fis.read()) != -1) {
-				final var b = (byte) data;
-				fos.write(b);
+				fos.write((byte) data);
 			}
 		} catch (FileNotFoundException fe) {
 			if (fileIn.isDirectory())
 				System.err.println("Es handelt sich bei " + copyFrom + " um ein Verzeichnis!");
 			else if (fileIn.exists())
 				System.err.println("Die Datei " + copyFrom + " konnte nicht geoeffnet werden!");
-			else if (!fileOut.exists())
-				System.err.println("Die Datei " + copyTo + " konnte nicht erstellt werden");
-			else
+			else if (!fileIn.exists())
 				System.err.println("Die Datei " + copyFrom + " konnte nicht gefunden werden!");
+			else if (!fileOut.exists())
+				System.err.println("Die Datei " + copyTo + " konnte nicht erstellt werden!");
+			else
+				System.err.println("Es ist ein unbekannter Fehler aufgetreten!");
 			System.exit(1);
 		} catch (IOException ie) {
-			ie.printStackTrace();
+			System.err.println(ie.getMessage());
+			System.exit(1);
 		}
 	}
 }
