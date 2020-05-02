@@ -21,7 +21,6 @@ class Zoo implements Iterable<Tier> {
 	 *         map belonging to the zoo calling this method.
 	 */
 	@Override
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Iterator<Tier> iterator() {
 		return new MyIterator(map);
 	}
