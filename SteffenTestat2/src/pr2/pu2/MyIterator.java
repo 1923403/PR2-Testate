@@ -6,24 +6,24 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class MyIterator<E extends Tier> implements Iterator<E> {
+public class MyIterator implements Iterator<Tier> {
 
 	private int pos = 0;
-	private List<E> list = new ArrayList<>();
+	private List<Tier> list = new ArrayList<>();
 
-	public MyIterator(Map<String, ArtenGehege<E>> map) {
+	public MyIterator(Map<String, ArtenGehege<? extends Tier>> map) {
 		for (var key : map.keySet())
 			list.addAll(map.get(key).gehege);
 
-		Collections.sort(this.list, new MyComparator<E>());
+		Collections.sort(this.list, new MyComparator());
 	}
 
 	public boolean hasNext() {
 		return (pos < list.size());
 	}
 
-	public E next() {
-		E result = list.get(pos);
+	public Tier next() {
+		Tier result = list.get(pos);
 		pos++;
 		return result;
 	}
