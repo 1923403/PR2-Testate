@@ -8,8 +8,8 @@ package pr2.pu2;
  * Represents an animal.
  * 
  * @param hp        The animals health points.
- * @param x         The animals location (x-coordinate)
- * @param y         The animals location (y-coordinate)
+ * @param x         The animals location (x-coordinate).
+ * @param y         The animals location (y-coordinate).
  * @param rng       A random number generator.
  * @param reference A reference to the animals own thread.
  * @param counter   Counts the number of animals created with the create()
@@ -56,7 +56,7 @@ public class Tier extends Thread {
 	/**
 	 * Creates an animal.
 	 * 
-	 * @return An already started animal with random starting hp and a name
+	 * @return An already running animal with random starting hp and a name
 	 *         depending on the number of animals already created.
 	 */
 	public static Tier create() {
@@ -122,22 +122,22 @@ public class Tier extends Thread {
 		/*
 		 * Aufgabe 8 + 9
 		 */
-//		var zoo = new Zoo();
-//
-//		var hasenstall = new ArtenGehege<Hase>();
-//		hasenstall.einsperren(new Hase());
-//		hasenstall.einsperren(new Hase());
-//
-//		var tierstall = new ArtenGehege<Tier>();
-//		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
-//		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
-//
-//		zoo.map.put("Hasenstall", hasenstall);
-//		zoo.map.put("Tierstall", tierstall);
-//
-//		var iterator = zoo.iterator();
-//
-//		while (iterator.hasNext())
-//			System.out.println(iterator.next().hp);
+		var zoo = new Zoo();
+
+		var hasenstall = new ArtenGehege<Hase>();
+		hasenstall.einsperren(new Hase());
+		hasenstall.einsperren(new Hase());
+
+		var tierstall = new ArtenGehege<Tier>();
+		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
+		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
+
+		zoo.map.put("Hasenstall", hasenstall);
+		zoo.map.put("Tierstall", tierstall);
+
+		var iterator = zoo.iterator();
+
+		while (iterator.hasNext())
+			System.out.println(iterator.next().hp);
 	}
 }
