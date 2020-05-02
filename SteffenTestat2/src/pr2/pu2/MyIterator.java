@@ -11,7 +11,6 @@ public class MyIterator<E extends Tier> implements Iterator<E> {
 	private int pos = 0;
 	private List<E> list = new ArrayList<>();
 
-	@SuppressWarnings("unchecked")
 	public MyIterator(Map<String, ArtenGehege<E>> map) {
 		for (var key : map.keySet())
 			list.addAll(map.get(key).gehege);
