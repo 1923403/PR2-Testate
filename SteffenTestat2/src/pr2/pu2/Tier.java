@@ -21,6 +21,11 @@ public class Tier extends Thread {
 			} catch (InterruptedException e) {
 				System.err.println(e.getMessage());
 			}
+
+			/*
+			 * Ablauftest
+			 */
+//			System.out.println(this.getName() + ", " + this.hp + " HP, x: " + this.x + ", y: " + this.y);
 		}
 	}
 
@@ -52,7 +57,53 @@ public class Tier extends Thread {
 	}
 
 	public static void main(String[] args) {
-		Tier tier = new Tier(33);
-		tier.start();
+		/*
+		 * Aufgabe 2
+		 */
+//		Tier tier = new Tier(33);
+//		tier.start();
+
+		/*
+		 * Aufgabe 3
+		 */
+//		Tier.create();
+//		Tier.create();
+
+		/*
+		 * Ausgabe 4
+		 */
+//		Hase.create();
+//		Hase.create();
+
+		/*
+		 * Aufgabe 7
+		 */
+//		var hasenstall = new ArtenGehege<Hase>();
+//		hasenstall.einsperren(Hase.create());
+//		hasenstall.einsperren(new Hase());
+//		hasenstall.einsperren(new Hase());
+//
+//		hasenstall.einsperren(new Tier((int) (Math.random() * 100)));
+
+		/*
+		 * Aufgabe 8 + 9
+		 */
+//		var zoo = new Zoo();
+//
+//		var hasenstall = new ArtenGehege<Hase>();
+//		hasenstall.einsperren(new Hase());
+//		hasenstall.einsperren(new Hase());
+//
+//		var tierstall = new ArtenGehege<Tier>();
+//		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
+//		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
+//
+//		zoo.map.put("Hasenstall", hasenstall);
+//		zoo.map.put("Tierstall", tierstall);
+//
+//		var iterator = zoo.iterator();
+//
+//		while (iterator.hasNext())
+//			System.out.println(iterator.next().hp);
 	}
 }

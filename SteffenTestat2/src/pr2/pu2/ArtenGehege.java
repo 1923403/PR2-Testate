@@ -20,13 +20,4 @@ public class ArtenGehege<E extends Tier> {
 	public void einsperren(E tier) {
 		gehege.add(tier);
 	}
-
-	public static void main(String[] args) {
-		var hasenstall = new ArtenGehege<Hase>();
-		hasenstall.einsperren(Hase.create());
-		hasenstall.einsperren(new Hase());
-		hasenstall.einsperren(new Hase());
-
-//		hasenstall.einsperren(new Tier(10));
-	}
 }

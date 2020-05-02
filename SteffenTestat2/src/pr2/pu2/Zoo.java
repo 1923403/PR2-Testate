@@ -13,33 +13,4 @@ class Zoo implements Iterable<Tier> {
 	public Iterator<Tier> iterator() {
 		return new MyIterator(map);
 	}
-
-	public static void main(String[] args) {
-		var zoo = new Zoo();
-
-		var hasenstall = new ArtenGehege<Hase>();
-		var hase1 = new Hase();
-		var hase2 = new Hase();
-
-		hasenstall.einsperren(hase1);
-		hasenstall.einsperren(hase2);
-
-		var tierstall = new ArtenGehege<Tier>();
-		var tier1 = new Tier(35);
-		var tier2 = new Tier(16);
-		var tier3 = new Tier(64);
-
-		tierstall.einsperren(tier1);
-		tierstall.einsperren(tier2);
-		tierstall.einsperren(tier3);
-		tierstall.einsperren(tier3);
-
-		zoo.map.put("Hasenstall", hasenstall);
-		zoo.map.put("Tierstall", tierstall);
-
-		var iterator = zoo.iterator();
-
-		while (iterator.hasNext())
-			System.out.println(iterator.next().hp);
-	}
 }
