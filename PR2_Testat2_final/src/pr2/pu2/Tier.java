@@ -1,5 +1,20 @@
 package pr2.pu2;
+/**
+ * @author Gruppe 25: Raphael (1926543), Steffen (1923403), Floris (1921233)
+ *
+ **/
 
+/**
+ * Represents an animal.
+ * 
+ * @param hp        The animals health points.
+ * @param x         The animals location (x-coordinate)
+ * @param y         The animals location (y-coordinate)
+ * @param rng       A random number generator.
+ * @param reference A reference to the animals own thread.
+ * @param counter   Counts the number of animals created with the create()
+ *                  method.
+ */
 public class Tier extends Thread {
 
 	protected static int counter;
@@ -7,10 +22,19 @@ public class Tier extends Thread {
 	protected Thread reference = Thread.currentThread();
 	protected int hp, x, y;
 
+	/**
+	 * The constructor for "Tier".
+	 * 
+	 * @param hp The animals hp.
+	 */
 	protected Tier(int hp) {
 		this.hp = hp;
 	}
 
+	/**
+	 * The run method for the animal, which is realized as a Thread. Its lifecycle
+	 * looks like this: move, lose one hp, sleep for 100ms, repeat until hp is zero.
+	 */
 	public void run() {
 		while (hp > 0) {
 			this.move();
@@ -29,6 +53,12 @@ public class Tier extends Thread {
 		}
 	}
 
+	/**
+	 * Creates an animal.
+	 * 
+	 * @return An already started animal with random starting hp and a name
+	 *         depending on the number of animals already created.
+	 */
 	public static Tier create() {
 		Tier tier = new Tier((int) (Math.random() * 100));
 		Tier.counter++;
@@ -37,6 +67,10 @@ public class Tier extends Thread {
 		return tier;
 	}
 
+	/**
+	 * The animal moves in a random direction, represented by the x and y
+	 * coordinates.
+	 */
 	public synchronized void move() {
 		switch ((int) (Math.random() * 5)) {
 		case 0:
