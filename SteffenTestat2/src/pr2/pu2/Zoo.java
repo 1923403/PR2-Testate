@@ -9,7 +9,6 @@ class Zoo implements Iterable<Tier> {
 	protected Map<String, ArtenGehege<? extends Tier>> map = new HashMap<>();
 
 	@Override
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Iterator<Tier> iterator() {
 		return new MyIterator(map);
 	}
