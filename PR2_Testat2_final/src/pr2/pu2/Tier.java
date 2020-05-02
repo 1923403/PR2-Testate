@@ -1,4 +1,7 @@
 package pr2.pu2;
+
+import java.util.Random;
+
 /**
  * @author Gruppe 25: Raphael (1926543), Steffen (1923403), Floris (1921233)
  *
@@ -18,7 +21,7 @@ package pr2.pu2;
 public class Tier extends Thread {
 
 	protected static int counter;
-	protected static double rng = Math.random();
+	protected static Random rng = new Random();
 	protected Thread reference = Thread.currentThread();
 	protected int hp, x, y;
 
@@ -49,7 +52,7 @@ public class Tier extends Thread {
 			/*
 			 * Ablauftest
 			 */
-//			System.out.println(this.getName() + ", " + this.hp + " HP, x: " + this.x + ", y: " + this.y);
+			System.out.println(this.getName() + ", " + this.hp + " HP, x: " + this.x + ", y: " + this.y);
 		}
 	}
 
@@ -60,7 +63,7 @@ public class Tier extends Thread {
 	 *         depending on the number of animals already created.
 	 */
 	public static Tier create() {
-		Tier tier = new Tier((int) (Math.random() * 100));
+		Tier tier = new Tier(Tier.rng.nextInt(100));
 		Tier.counter++;
 		tier.setName("Tier-" + String.format("%03d", Tier.counter));
 		tier.start();
@@ -72,7 +75,7 @@ public class Tier extends Thread {
 	 * coordinates.
 	 */
 	public synchronized void move() {
-		switch ((int) (Math.random() * 5)) {
+		switch (Tier.rng.nextInt(5)) {
 		case 0:
 			break;
 		case 1:
@@ -116,8 +119,8 @@ public class Tier extends Thread {
 //		hasenstall.einsperren(Hase.create());
 //		hasenstall.einsperren(new Hase());
 //		hasenstall.einsperren(new Hase());
-
-//		hasenstall.einsperren(new Tier((int) (Math.random() * 100)));
+//
+//		hasenstall.einsperren(new Tier(Tier.rng.nextInt(100)));
 
 		/*
 		 * Aufgabe 8 + 9
@@ -129,8 +132,8 @@ public class Tier extends Thread {
 //		hasenstall.einsperren(new Hase());
 //
 //		var tierstall = new ArtenGehege<Tier>();
-//		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
-//		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
+//		tierstall.einsperren(new Tier(Tier.rng.nextInt(100)));
+//		tierstall.einsperren(new Tier(Tier.rng.nextInt(100)));
 //
 //		zoo.map.put("Hasenstall", hasenstall);
 //		zoo.map.put("Tierstall", tierstall);
