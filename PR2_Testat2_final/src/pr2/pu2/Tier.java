@@ -116,28 +116,28 @@ public class Tier extends Thread {
 //		hasenstall.einsperren(Hase.create());
 //		hasenstall.einsperren(new Hase());
 //		hasenstall.einsperren(new Hase());
-//
+
 //		hasenstall.einsperren(new Tier((int) (Math.random() * 100)));
 
 		/*
 		 * Aufgabe 8 + 9
 		 */
-		var zoo = new Zoo();
-
-		var hasenstall = new ArtenGehege<Hase>();
-		hasenstall.einsperren(new Hase());
-		hasenstall.einsperren(new Hase());
-
-		var tierstall = new ArtenGehege<Tier>();
-		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
-		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
-
-		zoo.map.put("Hasenstall", hasenstall);
-		zoo.map.put("Tierstall", tierstall);
-
-		var iterator = zoo.iterator();
-
-		while (iterator.hasNext())
-			System.out.println(iterator.next().hp);
+//		var zoo = new Zoo();
+//
+//		var hasenstall = new ArtenGehege<Hase>();
+//		hasenstall.einsperren(new Hase());
+//		hasenstall.einsperren(new Hase());
+//
+//		var tierstall = new ArtenGehege<Tier>();
+//		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
+//		tierstall.einsperren(new Tier((int) (Math.random() * 100)));
+//
+//		zoo.map.put("Hasenstall", hasenstall);
+//		zoo.map.put("Tierstall", tierstall);
+//
+//		var iterator = zoo.iterator();
+//
+//		while (iterator.hasNext())
+//			System.out.println(iterator.next().hp);
 	}
 }

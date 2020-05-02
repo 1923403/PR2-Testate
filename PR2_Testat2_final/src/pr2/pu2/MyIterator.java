@@ -10,24 +10,24 @@ import java.util.Map;
  * This is a custom iterator, which can iterate over the whole zoo.
  * 
  */
-public class MyIterator<E extends Tier> implements Iterator<E> {
+public class MyIterator implements Iterator<Tier> {
 
 	private int pos = 0;
-	private List<E> list = new ArrayList<>();
+	private List<Tier> list = new ArrayList<>();
 
 	/**
 	 * The constructor for MyIterator.
 	 * 
 	 * @param map The map which belongs to the zoo to iterate over.
 	 */
-	public MyIterator(Map<String, ArtenGehege<E>> map) {
+	public MyIterator(Map<String, ArtenGehege<? extends Tier>> map) {
 		// gets all keys, gets the animals from the corresponding enclosures and puts
 		// them on the list.
 		for (var key : map.keySet())
 			list.addAll(map.get(key).gehege);
 
 		// sorting the list descending by hp using the custom comparator MyComparator.
-		Collections.sort(this.list, new MyComparator<E>());
+		Collections.sort(this.list, new MyComparator());
 	}
 
 	// implementation of hasNext() method
@@ -36,8 +36,8 @@ public class MyIterator<E extends Tier> implements Iterator<E> {
 	}
 
 	// implementation of next() method
-	public E next() {
-		E result = list.get(pos);
+	public Tier next() {
+		Tier result = list.get(pos);
 		pos++;
 		return result;
 	}
