@@ -16,7 +16,7 @@ import java.util.Iterator;
 			gehege.add(tier);
 		}
 
-		public static void main(String[] args) {
+/*		public static void main(String[] args) {
 			var hasenstall = new ArtenGehege<Hase>();
 			var hase1 = new Hase();
 			var hase2 = new Hase();
@@ -26,16 +26,18 @@ import java.util.Iterator;
 			hasenstall.einsperren(hase2);
 			hasenstall.einsperren(hase3);
 
-//			var tier1 = new Tier(50);
-//			hasenstall.einsperren(tier1);
+			var tier1 = new Tier(50);
+			hasenstall.einsperren(tier1);
 
 		System.out.println(hasenstall.gehege.size());
 
 		
-		}
+		}*/
+		
 		public int getSize(ArtenGehege artGehege) {
 			return artGehege.gehege.size();
-		}
+		} 
+		
 		public Tier getAnimal(int stelle){
 			
 		return	(Tier) this.gehege.get(stelle);

@@ -59,11 +59,11 @@ public class Tier extends Thread {
 			break;
 		}
 	}
-
+/*
 	public static void main(String[] args) {
 		Tier tier = new Tier(33);
 		tier.start();
 	}
-
+*/
 
 }

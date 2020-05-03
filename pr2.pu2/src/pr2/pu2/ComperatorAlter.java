@@ -12,14 +12,8 @@ public class ComperatorAlter implements Comparator<Tier> {
 }
 @Override
 public int compare(Tier a, Tier b) {
+return b.getHealth()-a.getHealth();
 
-    if(a.getHealth() == b.getHealth()) {
-		return 0;
-	}else if (a.getHealth() > b.getHealth()) {
-		return -1;
-	}else {
-	return 1;
-	}
     }
 
 	
