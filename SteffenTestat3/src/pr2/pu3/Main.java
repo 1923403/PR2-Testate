@@ -12,5 +12,10 @@ public class Main {
 
 		System.out.println(intList.toListString());
 		System.out.println(stringList.toListString());
+
+		String s = "Welt";
+
+		System.out.println(stringList.containsIter(s));
+		System.out.println(stringList.contains(s));
 	}
 }

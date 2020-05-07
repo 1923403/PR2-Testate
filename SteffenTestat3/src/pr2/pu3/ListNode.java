@@ -104,4 +104,33 @@ public class ListNode<E> {
 		}
 	}
 
+	/*
+	 * AUFGABE 2
+	 */
+	public boolean containsIter(E e) {
+		var element = this;
+
+		while (element.getHead() != e) {
+			if (element.next == null)
+				return false;
+			element = element.next;
+		}
+
+		return true;
+	}
+
+	/*
+	 * AUFGABE 3
+	 * 
+	 * UNDER CONSTRUCTION!
+	 */
+	public boolean contains(E e) {
+		if (this.getHead() == e)
+			return true;
+
+		if (this.getHead() != null)
+			this.getTail().contains(e);
+
+		return false;
+	}
 }
