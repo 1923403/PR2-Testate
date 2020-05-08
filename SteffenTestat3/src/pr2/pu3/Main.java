@@ -13,9 +13,9 @@ public class Main {
 		System.out.println(intList.toListString());
 		System.out.println(stringList.toListString());
 
-		String s = "schö";
+		String s = "schön";
 
 		System.out.println(stringList.containsIter(s));
-		System.out.println(stringList.contains(s));
+//		System.out.println(stringList.contains(s));
 	}
 }

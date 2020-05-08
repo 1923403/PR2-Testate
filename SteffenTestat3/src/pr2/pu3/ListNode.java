@@ -93,11 +93,11 @@ public class ListNode<E> {
 		var list = "(";
 
 		if (this.size() == 1)
-			return list += this.getHead() + ")";
+			return list + this.getHead() + ")";
 		else {
-			while (element.next != null) {
+			while (element.getTail() != null) {
 				list += element.getHead() + ", ";
-				element = element.next;
+				element = element.getTail();
 			}
 			list += element.getHead() + ")";
 			return list;
@@ -125,14 +125,19 @@ public class ListNode<E> {
 	 * UNDER CONSTRUCTION!
 	 */
 	public boolean contains(E e) {
-		System.out.println(this.getHead());
+		System.out.println("11111111111111111111");
+		boolean flag = false;
 
-		if (this.getHead() != e) {
-			if (this.getTail() == null)
-				return false;
+		if (this.getHead() == e) {
+			System.out.println("TRUE");
+			flag = true;
+		}
+
+		if (!flag && this.getTail() != null) {
+			System.out.println("AUSLÖSER");
 			this.getTail().contains(e);
 		}
 
-		return true;
+		return flag;
 	}
 }
