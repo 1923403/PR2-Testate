@@ -90,17 +90,16 @@ public class ListNode<E> {
 	 */
 	public String toListString() {
 		var element = this;
-		var list = "(";
+		var list = "";
 
 		if (this.size() == 1)
-			return list + this.getHead() + ")";
+			return "(" + this.getHead() + ")";
 		else {
 			while (element.getTail() != null) {
 				list += element.getHead() + ", ";
 				element = element.getTail();
 			}
-			list += element.getHead() + ")";
-			return list;
+			return "(" + list + element.getHead() + ")";
 		}
 	}
 
@@ -121,8 +120,6 @@ public class ListNode<E> {
 
 	/*
 	 * AUFGABE 3
-	 * 
-	 * UNDER CONSTRUCTION!
 	 */
 	public boolean contains(E e) {
 		boolean flag = false;
