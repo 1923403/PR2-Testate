@@ -125,18 +125,13 @@ public class ListNode<E> {
 	 * UNDER CONSTRUCTION!
 	 */
 	public boolean contains(E e) {
-		System.out.println("11111111111111111111");
 		boolean flag = false;
 
-		if (this.getHead() == e) {
-			System.out.println("TRUE");
-			flag = true;
-		}
+		if (this.getHead() == e)
+			return true;
 
-		if (!flag && this.getTail() != null) {
-			System.out.println("AUSLÖSER");
-			this.getTail().contains(e);
-		}
+		if (!flag && this.getTail() != null)
+			flag = this.getTail().contains(e);
 
 		return flag;
 	}

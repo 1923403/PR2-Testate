@@ -16,6 +16,6 @@ public class Main {
 		String s = "schön";
 
 		System.out.println(stringList.containsIter(s));
-//		System.out.println(stringList.contains(s));
+		System.out.println(stringList.contains(s));
 	}
 }
