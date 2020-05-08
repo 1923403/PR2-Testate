@@ -128,9 +128,8 @@ public class ListNode<E> {
 		System.out.println(this.getHead());
 
 		if (this.getHead() != e) {
-			if (this.getTail() == null) {
+			if (this.getTail() == null)
 				return false;
-			}
 			this.getTail().contains(e);
 		}
 
