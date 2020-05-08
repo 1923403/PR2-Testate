@@ -105,6 +105,8 @@ public class ListNode<E> {
 
 	/*
 	 * AUFGABE 2
+	 * 
+	 * TODO: JUnit-Tests
 	 */
 	public boolean containsIter(E e) {
 		var element = this;
@@ -120,6 +122,8 @@ public class ListNode<E> {
 
 	/*
 	 * AUFGABE 3
+	 * 
+	 * TODO: JUnit-Tests
 	 */
 	public boolean contains(E e) {
 		boolean flag = false;
