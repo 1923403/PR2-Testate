@@ -111,9 +111,9 @@ public class ListNode<E> {
 		var element = this;
 
 		while (element.getHead() != e) {
-			if (element.next == null)
+			if (element.getTail() == null)
 				return false;
-			element = element.next;
+			element = element.getTail();
 		}
 
 		return true;
@@ -125,12 +125,15 @@ public class ListNode<E> {
 	 * UNDER CONSTRUCTION!
 	 */
 	public boolean contains(E e) {
-		if (this.getHead() == e)
-			return true;
+		System.out.println(this.getHead());
 
-		if (this.getHead() != null)
+		if (this.getHead() != e) {
+			if (this.getTail() == null) {
+				return false;
+			}
 			this.getTail().contains(e);
+		}
 
-		return false;
+		return true;
 	}
 }
