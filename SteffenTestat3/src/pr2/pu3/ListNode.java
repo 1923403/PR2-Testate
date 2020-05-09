@@ -125,15 +125,14 @@ public class ListNode<E> {
 	 * 
 	 * TODO: JUnit-Tests
 	 */
-	public boolean contains(E e) {
-		boolean flag = false;
+	public boolean contains(E e) {		
 
 		if (this.getHead() == e)
 			return true;
 
-		if (!flag && this.getTail() != null)
-			flag = this.getTail().contains(e);
+		if (this.getTail() != null)
+			return this.getTail().contains(e);
 
-		return flag;
+		return false;
 	}
 }

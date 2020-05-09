@@ -115,6 +115,7 @@ public class TreeNode<E> {
 	 * AUFGABE 5
 	 */
 	public boolean equalStructure(TreeNode<E> otherNode) {
+		return false;
 		
 	}
 }
