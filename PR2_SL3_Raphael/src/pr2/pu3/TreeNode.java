@@ -115,9 +115,10 @@ public class TreeNode<E> {
 	 * AUFGABE 5
 	 */
 
-	//todo 
-	//public compareCaller(node1,node2){
-	//if nodes null return true else equalStructure(TreeNode<E> otherNode) }
+	
+	
+	
+	
 	public boolean equalStructure(TreeNode<E> otherNode) {
 
 		if (this.getValue() != otherNode.getValue()) {
