@@ -108,7 +108,11 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 * @return Wahr, wenn der Baum leer ist, falsch sonst.
 	 */
 	public boolean isEmpty() {
-		return (this.root == null);
+		try {
+			return this.root.equals(null);
+		} catch (NullPointerException npe) {
+			return true;
+		}
 	}
 
 	/**

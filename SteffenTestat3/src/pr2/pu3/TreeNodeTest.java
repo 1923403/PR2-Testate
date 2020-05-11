@@ -2,8 +2,10 @@ package pr2.pu3;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("TreeNode-Tests")
 class TreeNodeTest {
 
 	@Test
@@ -18,12 +20,11 @@ class TreeNodeTest {
 
 		assertTrue(treeNode1.equalStructure(treeNode2));
 		assertFalse(treeNode3.equalStructure(treeNode1));
-		
+
 		// FEHLER!
 		assertFalse(treeNode4.equalStructure(treeNode5));
-		
+
 		assertFalse(treeNode4.equalStructure(treeNode6));
 		assertTrue(treeNode4.equalStructure(treeNode7));
 	}
-
 }
