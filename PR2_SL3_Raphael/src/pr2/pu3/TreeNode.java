@@ -114,11 +114,6 @@ public class TreeNode<E> {
 	/*
 	 * AUFGABE 5
 	 */
-
-	
-	
-	
-	
 	public boolean equalStructure(TreeNode<E> otherNode) {
 
 		if (this.getValue() != otherNode.getValue()) {
@@ -149,22 +144,4 @@ public class TreeNode<E> {
 		
 		return true;
 	}
-
-//		if (this.getLeft() == null && otherNode.getLeft() != null)
-//			return false;
-//		if (this.getLeft() != null && otherNode.getLeft() == null)
-//			return false;
-//		
-//		if (this.getRight() == null && otherNode.getRight() != null)
-//			return false;
-//		if (this.getRight() != null && otherNode.getRight() == null)
-//			return false;
-//
-//		if ((this.getValue() != otherNode.getValue()) || !this.getLeft().equalStructure(otherNode.getLeft())
-//				|| !this.getRight().equalStructure(otherNode.getRight())) {
-//			return false;
-//		}
-//		return true;
-//	}
-
 }
