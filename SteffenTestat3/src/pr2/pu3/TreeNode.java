@@ -125,6 +125,8 @@ public class TreeNode<E> {
 			} catch (NullPointerException npe) {
 				return false;
 			}
+		else if (otherNode.getLeft() != null)
+			return false;
 
 		if (this.getRight() != null)
 			try {
@@ -133,6 +135,8 @@ public class TreeNode<E> {
 			} catch (NullPointerException npe) {
 				return false;
 			}
+		else if (otherNode.getRight() != null)
+			return false;
 
 		return true;
 
