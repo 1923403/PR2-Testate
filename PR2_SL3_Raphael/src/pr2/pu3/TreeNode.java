@@ -114,57 +114,30 @@ public class TreeNode<E> {
 	/*
 	 * AUFGABE 5
 	 */
-
-	
-	
-	
-	
 	public boolean equalStructure(TreeNode<E> otherNode) {
 
-		if (this.getValue() != otherNode.getValue()) {
+		if (this.getValue() != otherNode.getValue())
 			return false;
-			
-		
-		} else if (this.getLeft() != null) {
-			if (otherNode.getLeft() == null) {
+
+		else if (this.getLeft() != null) {
+			if (otherNode.getLeft() == null)
 				return false;
-			} else if (!this.getLeft().equalStructure(otherNode.getLeft())) {
+			else if (!this.getLeft().equalStructure(otherNode.getLeft()))
 				return false;
-			}
-		} else if (otherNode.getLeft() != null) {
+
+		} else if (otherNode.getLeft() != null)
 			return false;
-			
-			
-			
-		} else if (this.getRight() != null) {
-			if (otherNode.getRight() == null) {
+
+		else if (this.getRight() != null) {
+			if (otherNode.getRight() == null) 
 				return false;
-			} else if (!this.getRight().equalStructure(otherNode.getRight())) {
+			 else if (!this.getRight().equalStructure(otherNode.getRight()))
 				return false;
-			}
-		} else if (otherNode.getRight() != null) {
+
+		} else if (otherNode.getRight() != null)
 			return false;
-		}
-		
-		
+
 		return true;
+
 	}
-
-//		if (this.getLeft() == null && otherNode.getLeft() != null)
-//			return false;
-//		if (this.getLeft() != null && otherNode.getLeft() == null)
-//			return false;
-//		
-//		if (this.getRight() == null && otherNode.getRight() != null)
-//			return false;
-//		if (this.getRight() != null && otherNode.getRight() == null)
-//			return false;
-//
-//		if ((this.getValue() != otherNode.getValue()) || !this.getLeft().equalStructure(otherNode.getLeft())
-//				|| !this.getRight().equalStructure(otherNode.getRight())) {
-//			return false;
-//		}
-//		return true;
-//	}
-
 }
