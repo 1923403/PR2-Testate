@@ -38,14 +38,14 @@ class ListNodeTest {
 
 		var stringList = new ListNode<>("Hallo", new ListNode<>("Welt",
 				new ListNode<>("das", new ListNode<>("Wetter", new ListNode<>("ist", new ListNode<>("schön"))))));
-		
-		assertEquals(true, intList.contains(1));
-		assertEquals(true, intList.contains(8));
-		assertEquals(false, intList.contains(13));
 
-		assertEquals(true, stringList.contains("Hallo"));
-		assertEquals(true, stringList.contains("schön"));
-		assertEquals(false, stringList.contains("schö"));
+		assertTrue(intList.contains(1));
+		assertTrue(intList.contains(8));
+		assertFalse(intList.contains(13));
+
+		assertTrue(stringList.contains("Hallo"));
+		assertTrue(stringList.contains("schön"));
+		assertFalse(stringList.contains("schö"));
 	}
 
 }
