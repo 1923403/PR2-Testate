@@ -128,9 +128,9 @@ public class TreeNode<E> {
 			return false;
 
 		else if (this.getRight() != null) {
-			if (otherNode.getRight() == null) 
+			if (otherNode.getRight() == null)
 				return false;
-			 else if (!this.getRight().equalStructure(otherNode.getRight()))
+			else if (!this.getRight().equalStructure(otherNode.getRight()))
 				return false;
 
 		} else if (otherNode.getRight() != null)

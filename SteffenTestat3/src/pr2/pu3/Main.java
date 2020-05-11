@@ -25,18 +25,32 @@ public class Main {
 //		System.out.println(treeNode5.equalStructure(treeNode6));
 //		System.out.println(treeNode6.equalStructure(treeNode7));
 
-		var intTreeA = new TreeNode<Integer>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)),
-				new TreeNode<>(5));
-		var intTreeB = new TreeNode<Integer>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(55)),
-				new TreeNode<>(5));
-		var intTreeC = new TreeNode<Integer>(null);
-		var intTreeD = new TreeNode<Integer>(null);
+//		var intTreeA = new TreeNode<Integer>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)),
+//				new TreeNode<>(5));
+//		var intTreeB = new TreeNode<Integer>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(55)),
+//				new TreeNode<>(5));
+//		var intTreeC = new TreeNode<Integer>(null);
+//		var intTreeD = new TreeNode<Integer>(null);
 
 //		intTreeA.printInorder();
 //		intTreeB.printInorder();
 //		intTreeA=null;
 //		intTreeB=null;
-		System.out.println(intTreeA.equalStructure(intTreeB));
-		System.out.println(intTreeC.equalStructure(intTreeD));
+//		System.out.println(intTreeA.equalStructure(intTreeB));
+//		System.out.println(intTreeC.equalStructure(intTreeD));
+
+		SearchTree<Integer> st = new SearchTree<>();
+
+		var intTreeA = new TreeNode<>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)), new TreeNode<>(5));
+		var intTreeB = new TreeNode<>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(55)), new TreeNode<>(5));
+		var intTreeC = new TreeNode<>(null);
+		var intTreeD = new TreeNode<>(1, new TreeNode<>(2), new TreeNode<>(3));
+//		String inte = 5;
+		
+//		Integer a = 5;
+//
+//		System.out.println(st.add(3));
+		System.out.println(st.add(3));
+		System.out.println(st.isEmpty());
 	}
 }
