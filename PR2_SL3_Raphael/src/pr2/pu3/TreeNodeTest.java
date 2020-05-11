@@ -27,6 +27,7 @@ class TreeNodeTest {
 		assertEquals(false, intTreeA.equalStructure(intTreeC));
 		assertEquals(false, intTreeA.equalStructure(intTreeD));
 //		assertEquals(false, intTreeA.equalStructure(intTreeE));
+//		assertEquals(false, intTreeE.equalStructure(intTreeA));
 
 	}
 

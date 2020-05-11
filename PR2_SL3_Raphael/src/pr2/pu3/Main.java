@@ -31,6 +31,8 @@ public class Main {
 //		intTreeA=null;
 //		intTreeB=null;
 		System.out.println(compareCaller(intTreeA, intTreeB));
+//		System.out.println(intTreeB.equalStructure(intTreeA));
+
 
 	}
 
