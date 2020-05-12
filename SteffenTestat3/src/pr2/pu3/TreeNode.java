@@ -118,63 +118,18 @@ public class TreeNode<E> {
 		if (this.getValue() != otherNode.getValue())
 			return false;
 
-		if (this.getLeft() != null) {
-			if (otherNode.getLeft() != null)
-				if (!this.getLeft().equalStructure(otherNode.getLeft()))
-					return false;
-		} else if (otherNode.getLeft() != null)
+		if (this.getLeft() != null && otherNode.getLeft() != null) {
+			if (!this.getLeft().equalStructure(otherNode.getLeft()))
+				return false;
+		} else if (this.getLeft() != null || otherNode.getLeft() != null)
 			return false;
 
-		if (this.getRight() != null) {
-			if (otherNode.getRight() != null)
-				if (!this.getRight().equalStructure(otherNode.getRight()))
-					return false;
-		} else if (otherNode.getRight() != null)
+		if (this.getRight() != null && otherNode.getRight() != null) {
+			if (!this.getRight().equalStructure(otherNode.getRight()))
+				return false;
+		} else if (this.getRight() != null || otherNode.getRight() != null)
 			return false;
 
 		return true;
-
-//		if (this.getValue() != otherNode.getValue())
-//			return false;
-//
-//		if (this.getLeft() != null)
-//			try {
-//				if (!this.getLeft().equalStructure(otherNode.getLeft()))
-//					return false;
-//			} catch (NullPointerException npe) {
-//				return false;
-//			}
-//		else if (otherNode.getLeft() != null)
-//			return false;
-//
-//		if (this.getRight() != null)
-//			try {
-//				if (!this.getRight().equalStructure(otherNode.getRight()))
-//					return false;
-//			} catch (NullPointerException npe) {
-//				return false;
-//			}
-//		else if (otherNode.getRight() != null)
-//			return false;
-//
-//		return true;
-
-//		else if (this.getLeft() != null) {
-//			if (otherNode.getLeft() == null)
-//				return false;
-//			else if (!this.getLeft().equalStructure(otherNode.getLeft()))
-//				return false;
-//		} else if (otherNode.getLeft() != null)
-//			return false;
-//
-//		else if (this.getRight() != null) {
-//			if (otherNode.getRight() == null)
-//				return false;
-//			else if (!this.getRight().equalStructure(otherNode.getRight()))
-//				return false;
-//		} else if (otherNode.getRight() != null)
-//			return false;
-//
-//		return true;
 	}
 }

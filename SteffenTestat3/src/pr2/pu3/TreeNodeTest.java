@@ -22,17 +22,37 @@ class TreeNodeTest {
 				new TreeNode<>(9, new TreeNode<>(10), new TreeNode<>(11)));
 		var treeNode10 = new TreeNode<>(5, new TreeNode<>(6, new TreeNode<>(7), new TreeNode<>(8)),
 				new TreeNode<>(9, new TreeNode<>(10), new TreeNode<>(11)));
+		var treeNode11 = new TreeNode<>(5, new TreeNode<>(7, new TreeNode<>(5), new TreeNode<>(5)), new TreeNode<>(1));
+		var treeNode12 = new TreeNode<>(5, new TreeNode<>(1, new TreeNode<>(2), new TreeNode<>(3)), new TreeNode<>(7));
 
 		assertTrue(treeNode1.equalStructure(treeNode2));
-		assertFalse(treeNode3.equalStructure(treeNode1));
+		assertTrue(treeNode2.equalStructure(treeNode1));
 
-		// FEHLER!
+		assertFalse(treeNode3.equalStructure(treeNode1));
+		assertFalse(treeNode1.equalStructure(treeNode3));
+
 		assertFalse(treeNode4.equalStructure(treeNode5));
+		assertFalse(treeNode5.equalStructure(treeNode4));
 
 		assertFalse(treeNode4.equalStructure(treeNode6));
+		assertFalse(treeNode6.equalStructure(treeNode4));
+
 		assertTrue(treeNode4.equalStructure(treeNode7));
+		assertTrue(treeNode7.equalStructure(treeNode4));
 
 		assertFalse(treeNode4.equalStructure(treeNode8));
+		assertFalse(treeNode8.equalStructure(treeNode4));
+
+		assertFalse(treeNode4.equalStructure(treeNode11));
+		assertFalse(treeNode11.equalStructure(treeNode4));
+
+		assertFalse(treeNode4.equalStructure(treeNode12));
+		assertFalse(treeNode12.equalStructure(treeNode4));
+
 		assertTrue(treeNode9.equalStructure(treeNode10));
+		assertTrue(treeNode10.equalStructure(treeNode9));
+
+		assertFalse(treeNode10.equalStructure(treeNode11));
+		assertFalse(treeNode11.equalStructure(treeNode10));
 	}
 }
