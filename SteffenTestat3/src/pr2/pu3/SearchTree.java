@@ -98,7 +98,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 		if (isEmpty()) { // Sonderfall leerer Baum beachten!
 			return 0; // Leerer Baum hat Größe 0.
 		} else {
-			return root.size(); // Nimm Größe des fkt. Baums.
+			return root.size(); // Nimm Gr��e des fkt. Baums.
 		}
 	}
 

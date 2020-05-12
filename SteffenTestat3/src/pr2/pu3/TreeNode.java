@@ -112,6 +112,28 @@ public class TreeNode<E> {
 	}
 
 	/*
+	 * AUFGABE 4
+	 */
+	
+	
+//	Unsere Grundidee ist, den Baum Knoten für Knoten durchzugehen
+//	und sobald ein Unterschied auftritt false zurückzugeben.
+//	Erreicht der Algorithmus das Ende, wird true zurückgegeben.
+//	Hierbei werden wir rekursiv vorgehen. Allerdings besteht hierbei die Gefahr
+//	NullPointerExceptions auszulösen. Um dies zu vermeiden, müssen wir vorher
+//	mehrere Bedingungen formulieren, die verhindern, dass die Methode an null ausgeführt wird.
+//	
+//	Zuerst wird der Wert des Knotens, an dem die Methode aufgerufen wurde mit dem Wert
+//	des übergebenen Knotens verglichen. Ist hier kein Unterschied festzustellen, werden nun die linken
+//	Kindknoten der beiden miteinander verglichen. Erst wenn sichergestellt ist,
+//	dass die zu vergleichenden Objekte beide nicht null sind, ruft sich die Methode 
+//	selbst auf (Rekursion). Wird hier auch kein Unterschied festgestellt,
+//	werden entsprechend die rechten Kindknoten untersucht.
+//	Wird bis hierhin kein Unterschied zwischen den beiden Objekten festgestellt, sind sie identisch
+//	und es wird true zurückgegeben!
+	
+	
+	/*
 	 * AUFGABE 5
 	 */
 	public boolean equalStructure(TreeNode<E> otherNode) {
