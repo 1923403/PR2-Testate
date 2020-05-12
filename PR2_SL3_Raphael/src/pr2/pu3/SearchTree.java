@@ -22,11 +22,11 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
    * da dieser schon vorhanden war.
    */
   public boolean add(E o) {
-    // Strategie: Wir suchen den Knoten, der nach dem EinfÃ¼gen des neues
+    // Strategie: Wir suchen den Knoten, der nach dem Einfügen des neuen
     // Elements der Elternknoten ist.
 
-    TreeNode<E> parent = null; // (VorlÃ¤ufiger) Elternknoten
-    TreeNode<E> node = root; // (VorlÃ¤ufiger) Kindknoten
+    TreeNode<E> parent = null; // (Vorläufiger) Elternknoten
+    TreeNode<E> node = root; // (Vorläufiger) Kindknoten
 
     // Solange der aktuelle Kindknoten nicht null ist...
     while (node != null) {
@@ -36,14 +36,14 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
       if (node.getValue().equals(o)) {
         return false; // Ja, also kann er nicht nochmal eingefÃ¼gt werden.
       } else if (o.compareTo(node.getValue()) < 0) {
-        // Der einzufÃ¼gende Wert ist kleiner als der aktuelle Knoten.
+        // Der einzufügende Wert ist kleiner als der aktuelle Knoten.
         node = node.getLeft(); // D.h. suche im linken Teilbaum weiter.
       } else {
-        // Der einzufÃ¼gende Wert ist grÃ¶ÃŸer als der aktuelle Knoten.
+        // Der einzufügende Wert ist größer als der aktuelle Knoten.
         node = node.getRight(); // D.h. suche im rechten Teilbaum weiter.
       }
     }
-    // Erzeuge den neuen Knoten fÃ¼r den einzufÃ¼genden Wert:
+    // Erzeuge den neuen Knoten für den einzufügenden Wert:
     SearchTreeNode<E> newNode = new SearchTreeNode<>(o);
     if (parent == null) {
       // Kein Elternknoten gefunden. D.h. Baum ist leer.
@@ -53,9 +53,9 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
       // Nachfolger des Elternknotens ist.
       parent.left = newNode; // In diesem Fall links.
     } else {
-      parent.right = newNode; // Dito fÃ¼r rechts.
+      parent.right = newNode; // Dito für rechts.
     }
-    return true; // Neuer Wert konnte erfolgreich eingefÃ¼gt werden.
+    return true; // Neuer Wert konnte erfolgreich eingefügt werden.
   }
 
 
@@ -73,10 +73,10 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
       if (n.getValue().equals(o)) {
         return true; // Element gefunden.
       } else if (o.compareTo(n.getValue()) < 0) {
-        // SuchschlÃ¼ssel kleiner, also im linken Teilbaum weitersuchen.
+        // Suchschlüssel kleiner, also im linken Teilbaum weitersuchen.
         n = n.getLeft();
       } else {
-        // SuchschlÃ¼ssel grÃ¶ÃŸer, also im rechtenTeilbaum weitersuchen.
+        // Suchschlüssel größer, also im rechten Teilbaum weitersuchen.
         n = n.getRight();
       }
     }
@@ -90,7 +90,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
    * @return True, falls Element entfernt wurde, false sonst.
    */
   public boolean remove(E o) {
-    // Noch nicht implementiert. Achtung: aufwÃ¤ndig!
+    // Noch nicht implementiert. Achtung: aufwändig!
     return false;
   }
 
@@ -100,7 +100,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
    */
   public int size() {
     if (isEmpty()) { // Sonderfall leerer Baum beachten!
-      return 0; // Leerer Baum hat GrÃ¶ÃŸe 0.
+      return 0; // Leerer Baum hat Größe 0.
     } else {
       return root.size(); // Nimm Größe des fkt. Baums.
     }
@@ -108,7 +108,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 
 
   /**
-   * ÃœberprÃ¼ft, ob der Baum Elemente enthÃ¤lt.
+   * Überprüft, ob der Baum Elemente enthält.
    *
    * @return Wahr, wenn der Baum leer ist, falsch sonst.
    */
@@ -125,7 +125,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
   }
 
   /**
-   * Bestimme die HÃ¶he des Baums.
+   * Bestimme die Höhe des Baums.
    *
    * @return
    */

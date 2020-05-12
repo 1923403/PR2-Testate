@@ -1,7 +1,7 @@
 package pr2.pu3;
 
 /**
- * Eine TreeNode-Klasse speziell f√ºr Suchb√§ume. Hier sind die Elemente
+ * Eine TreeNode-Klasse speziell f¸r Suchb‰ume. Hier sind die Elemente
  * sortierbar (Comparable).
  *
  * @author Markus Gumbel (m.gumbel@hs-mannheim.de)
@@ -9,7 +9,7 @@ package pr2.pu3;
 public class SearchTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 
 	/**
-	 * Erzeuge einen neuen Bin√§rbaum-Knoten. Nachfolger und Vorg√§nger sind nicht
+	 * Erzeuge einen neuen Bin‰rbaum-Knoten. Nachfolger und Vorg‰nger sind nicht
 	 * gesetzt.
 	 *
 	 * @param v Der Wert des Knotens.
@@ -19,7 +19,7 @@ public class SearchTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 	}
 
 	/**
-	 * Erzeuge einen neuen Bin√§rbaum(-Knoten), entspricht tree().
+	 * Erzeuge einen neuen Bin‰rbaum(-Knoten), entspricht tree().
 	 *
 	 * @param value Der Wert des Knotens.
 	 * @param left  Der linke Teilbaum.
