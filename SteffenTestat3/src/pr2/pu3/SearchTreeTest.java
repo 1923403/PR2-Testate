@@ -31,4 +31,17 @@ class SearchTreeTest {
 		searchTree.clear();
 		assertTrue(searchTree.isEmpty());
 	}
+	
+	/*
+	 * AUFGABE 8
+	 */
+	@Test
+	void testHeight() {
+		var searchTree = new SearchTree<Integer>();
+		searchTree.add(1);
+		searchTree.add(1);
+		searchTree.add(1);
+		searchTree.add(1);
+		System.out.println(searchTree.height());
+	}
 }
