@@ -21,19 +21,26 @@ public class Main {
 //		Aufgabe 5
 
 //		var intTreeA = new TreeNode<Integer>(0,new TreeNode<>(233), new TreeNode<>(675));
-		var intTreeB = new TreeNode<Integer>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)),
+//		var intTreeB = new TreeNode<Integer>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)),
+//				new TreeNode<>(5));
+		var intTreeA = new TreeNode<Integer>(null, new TreeNode<>(3, new TreeNode<>(null), new TreeNode<>(54)),
 				new TreeNode<>(5));
-		var intTreeA = new TreeNode<Integer>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)),
-				new TreeNode<>(5));
-	
-		intTreeA.printInorder();
-		intTreeB.printInorder();
-//		intTreeA=null;
-//		intTreeB=null;
-		System.out.println(compareCaller(intTreeA, intTreeB));
-//		System.out.println(intTreeB.equalStructure(intTreeA));
+//		
+//
+//		var intTreeB = new TreeNode<>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)),
+//				new TreeNode<>(5));
+//		intTreeB.printInorder();
+//		intTreeB.printInorder();
+		intTreeA = null;
+		// intTreeB=null;
+//		System.out.println(compareCaller(intTreeA, intTreeB));
+//		System.out.println(intTreeA.equalStructure(intTreeB));
 
+		var searchTreeA = new SearchTree<Integer>();
+		
+		System.out.println(searchTreeA.add(3));
 
+		System.out.println(searchTreeA.add(3));
 	}
 
 	private static <E> boolean compareCaller(TreeNode<E> a, TreeNode<E> b) {
