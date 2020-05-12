@@ -31,5 +31,4 @@ class SearchTreeTest {
 		searchTree.clear();
 		assertTrue(searchTree.isEmpty());
 	}
-
 }
