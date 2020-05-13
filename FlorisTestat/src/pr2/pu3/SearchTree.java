@@ -57,7 +57,30 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
     return true; // Neuer Wert konnte erfolgreich eingefügt werden.
   }
 
+  public TreeNode<E> getParent(TreeNode<E> o) {
+	 TreeNode<E> parent = null; // (Vorläufiger) Elternknoten
+	   TreeNode<E> node = root; // (Vorläufiger) Kindknoten
 
+	    
+	    
+	    while (node != null) {
+	        if (node.equals(o)) {
+	          return parent; 
+	        } else if (o.getValue().compareTo(node.getValue()) < 0) {
+	          parent = node;
+	          node = node.getLeft();
+	        } else {
+	        	parent = node;
+	        
+	          node = node.getRight();
+	        }
+	    
+	    
+	    
+	    }
+		return parent;    
+	  
+  }
   /**
    * Suche ein Element in dem Baum.
    *
@@ -131,8 +154,47 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
    * @return
    */
   public int height() {
-    // Noch nicht implementiert.
-    return 0;
+	System.out.println("test");
+	  TreeNode<E> node = root;
+	System.out.println();
+	  int height = 1;
+	  int tmp    = 1;
+	  int stepLeft = 0;
+	  int stepRight = 0;
+	  if(node == null) {
+		  return 0;
+	  }
+	  while(node.getLeft() != null || node.getRight() != null ) {
+	     while(node.getLeft() != null) {
+	    	 tmp++;
+	    	 stepLeft++;
+	    	 node = node.getLeft();
+	     }
+	     height = tmp;
+	     tmp = 0;
+	     while(stepLeft> 0) {
+	    	do {
+	    	 node = getParent(node);
+	    	 stepLeft--;
+	    	 if(stepRight > 0) {
+	    		 stepRight--;
+	    	 }
+	    	}while (stepRight > 0);
+	    	
+	    	while(node.getRight() != null) {
+	    		tmp++;
+	    		stepRight++;
+	    		node = node.getRight();
+	    	}
+	    	if(tmp > height) {
+	    		height = tmp;
+	    	}
+	    	tmp = 0;
+	    		
+	     }
+	  }
+	  
+	  return height;
   }
 
   public void printInorder() {

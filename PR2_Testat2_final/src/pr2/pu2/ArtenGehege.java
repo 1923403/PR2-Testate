@@ -33,4 +33,6 @@ public class ArtenGehege<E extends Tier> {
 	public void einsperren(E tier) {
 		gehege.add(tier);
 	}
+	
+	
 }
