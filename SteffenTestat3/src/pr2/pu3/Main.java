@@ -53,20 +53,20 @@ public class Main {
 //		System.out.println(st.add(3));
 //		System.out.println(st.isEmpty());
 
-		var searchTree = new SearchTree<Integer>();
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		searchTree.add((int) (Math.random() * 100));
-		System.out.println(searchTree.height());
+//		var searchTree = new SearchTree<Integer>();
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		searchTree.add((int) (Math.random() * 100));
+//		System.out.println(searchTree.height(searchTree.root));
 //		searchTree.printInorder();
 	}
 }
