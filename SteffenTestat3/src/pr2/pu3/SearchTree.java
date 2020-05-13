@@ -128,8 +128,47 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 * @return
 	 */
 	public int height() {
-		// Noch nicht implementiert.
-		return 0;
+		/*
+		 * ITERATIV
+		 */
+		TreeNode<E> n = root;
+		int i = 1;
+		int j = 1;
+
+		while (n.getLeft() != null) {
+			n = n.getLeft();
+			i++;
+		}
+
+		n = root;
+
+		while (n.getRight() != null) {
+			n = n.getRight();
+			j++;
+		}
+
+		if (i < j)
+			return j;
+		else
+			return i;
+
+		/*
+		 * REKURSIV - FUNKTIONIERT NOCH NICHT!
+		 */
+//		TreeNode<E> n = root;
+//		int i = 1;
+//		int j = 1;
+//
+//		if (n.getRight() != null )
+//			i += i + n.getRight().height();
+//		
+//		if (n.getLeft() != null)
+//			j += j + n.getLeft().height();
+//		
+//		if (i < j)
+//			return j;
+//		else
+//			return i;
 	}
 
 	public void printInorder() {

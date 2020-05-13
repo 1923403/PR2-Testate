@@ -39,18 +39,34 @@ public class Main {
 //		System.out.println(intTreeA.equalStructure(intTreeB));
 //		System.out.println(intTreeC.equalStructure(intTreeD));
 
-		SearchTree<Integer> st = new SearchTree<>();
+//		SearchTree<Integer> st = new SearchTree<>();
 
-		var intTreeA = new TreeNode<>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)), new TreeNode<>(5));
-		var intTreeB = new TreeNode<>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(55)), new TreeNode<>(5));
-		var intTreeC = new TreeNode<>(null);
-		var intTreeD = new TreeNode<>(1, new TreeNode<>(2), new TreeNode<>(3));
+//		var intTreeA = new TreeNode<>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(54)), new TreeNode<>(5));
+//		var intTreeB = new TreeNode<>(0, new TreeNode<>(3, new TreeNode<>(38), new TreeNode<>(55)), new TreeNode<>(5));
+//		var intTreeC = new TreeNode<>(null);
+//		var intTreeD = new TreeNode<>(1, new TreeNode<>(2), new TreeNode<>(3));
 //		String inte = 5;
-		
+
 //		Integer a = 5;
 //
 //		System.out.println(st.add(3));
-		System.out.println(st.add(3));
-		System.out.println(st.isEmpty());
+//		System.out.println(st.add(3));
+//		System.out.println(st.isEmpty());
+
+		var searchTree = new SearchTree<Integer>();
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		searchTree.add((int) (Math.random() * 100));
+		System.out.println(searchTree.height());
+//		searchTree.printInorder();
 	}
 }
