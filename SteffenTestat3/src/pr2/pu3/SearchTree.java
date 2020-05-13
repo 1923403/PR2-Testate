@@ -127,65 +127,18 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 *
 	 * @return
 	 */
-	public int height() {
-		/*
-		 * ITERATIV - FUNKTIONIERT NOCH NICHT!
-		 */
-		if (this.root == null)
+	public int height(TreeNode<?> node) {
+		if (node == null)
 			return 0;
+		else {
+			int left = height(node.getLeft());
+			int right = height(node.getRight());
 
-		TreeNode<?> n = root;
-		int i = 1;
-		int j = 1;
-
-		while (n.getLeft() != null || n.getRight() != null) {
-			while (n.getLeft() != null) {
-				n = n.getLeft();
-				i++;
-			}
-
-			while (n.getRight() != null) {
-				n = n.getRight();
-				i++;
-			}
+			if (left > right)
+				return (left + 1);
+			else
+				return (right + 1);
 		}
-
-		n = root;
-
-		while (n.getLeft() != null || n.getRight() != null) {
-			while (n.getRight() != null) {
-				n = n.getRight();
-				j++;
-			}
-
-			while (n.getLeft() != null) {
-				n = n.getLeft();
-				i++;
-			}
-		}
-
-		if (i < j)
-			return j;
-		else
-			return i;
-
-		/*
-		 * REKURSIV - FUNKTIONIERT NOCH NICHT!
-		 */
-//		TreeNode<E> n = root;
-//		int i = 1;
-//		int j = 1;
-//
-//		if (n.getRight() != null )
-//			i += i + n.getRight().height();
-//		
-//		if (n.getLeft() != null)
-//			j += j + n.getLeft().height();
-//		
-//		if (i < j)
-//			return j;
-//		else
-//			return i;
 	}
 
 	public void printInorder() {
