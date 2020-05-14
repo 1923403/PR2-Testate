@@ -113,6 +113,23 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 			return contains(o, node.getRight());
 		}
 	}
+	
+	public boolean contains2(E o, TreeNode<E> node) {
+		// Rekursive Variante
+		if (node == null)
+			return false;
+
+		if (node.getValue().equals(o)) {
+			return true; // Element gefunden.
+		} else if (o.compareTo(node.getValue()) < 0) {
+			// Suchschlüssel kleiner, also im linken Teilbaum weitersuchen.
+			return contains2(o, node.getLeft());
+		} else {
+			// Suchschlüssel größer, also im rechtenTeilbaum weitersuchen.
+			return contains2(o, node.getRight());
+		}
+
+	}
 
 	/**
 	 * Entfernt einen Knoten mit dem Wert o aus dem Baum.
