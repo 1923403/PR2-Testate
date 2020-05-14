@@ -53,10 +53,10 @@ public class TreeNode<E> {
 	 *
 	 * @return
 	 */
-	public int height() {
-		// Noch nicht implementiert.
-		return 0;
-	}
+//	public int height() {
+//		// Noch nicht implementiert.
+//		return 0;
+//	}
 
 	/**
 	 * Bestimmt die Anzahl der Elemente in diesem Baum.
@@ -119,40 +119,15 @@ public class TreeNode<E> {
 		
 	}
 	
-	public boolean isEmpty() {
 
-boolean flagLeft = true;
-boolean flagRight = true;
-
-   
-if(left != null) {
-	flagLeft = getLeft().isEmpty();
-	System.out.println("Left "+ flagLeft);
-}
-if(right != null) {
-	flagRight = getRight().isEmpty();
-	System.out.println("Right "+ flagRight);
-}
-     
-     if(value == null && flagLeft == true && flagRight == true) {	
-
-		return true;
-	}
 		
 
-	
-	return false;
-	}
 	
 
 	public static void main(String[] args) {
-		var intTreeA = new TreeNode<Object>(1);
-		var intTreeB = new TreeNode<Object>(null,null,intTreeA);
-		var intTreeC = new TreeNode<Object>(null);
+	
 		
-		var intTreeD = new TreeNode<Object>(null,intTreeC,intTreeB);
-		
-	System.out.println(intTreeD.isEmpty());
+	
 		TreeNode<Object> intTreeE = new TreeNode<Object>(null);
 		//System.out.println(intTreeE.isEmpty());
 	}
