@@ -80,6 +80,25 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 		return false; // Suche zu Ende, Wert nicht gefunden.
 	}
 
+	/*
+	 * AUFGABE 9
+	 */
+	public boolean contains(E o, TreeNode<?> node) {
+		if (node == null)
+			return false;
+		else if (node.getValue().equals(o))
+			return true;
+		else {
+			boolean left = contains(o, node.getLeft());
+			boolean right = contains(o, node.getRight());
+
+			if (left == true || right == true)
+				return true;
+			else
+				return false;
+		}
+	}
+
 	/**
 	 * Entfernt einen Knoten mit dem Wert o aus dem Baum.
 	 *
