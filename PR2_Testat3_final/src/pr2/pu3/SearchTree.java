@@ -159,4 +159,19 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 		}
 
 	}
+	/**
+	 * Bestimme die Höhe des Baums.
+	 *
+	 * @return
+	 */
+	public int height(TreeNode<E> node) {
+		if (node == null)
+			return 0;
+		else {
+			if (height(node.getLeft()) > height(node.getRight()))
+				return (height(node.getLeft()) + 1);
+			else
+				return (height(node.getRight()) + 1);
+		}
+	}
 }
