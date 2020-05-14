@@ -143,4 +143,20 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 		return null;
 	}
 
+	public boolean contains(E o, TreeNode<E> node) {
+		// Rekursive Variante
+		if (node == null)
+			return false;
+
+		if (node.getValue().equals(o)) {
+			return true; // Element gefunden.
+		} else if (o.compareTo(node.getValue()) < 0) {
+			// Suchschlüssel kleiner, also im linken Teilbaum weitersuchen.
+			return contains(o, node.getLeft());
+		} else {
+			// Suchschlüssel größer, also im rechtenTeilbaum weitersuchen.
+			return contains(o, node.getRight());
+		}
+
+	}
 }
