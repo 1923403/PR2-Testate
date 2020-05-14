@@ -98,18 +98,29 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 //				return false;
 //		}
 //	}
+
+	/**
+	 * AUFGABE 9
+	 * 
+	 * Examines recursively if tree contains a certain element.
+	 * 
+	 * @param o    element which will be searched for
+	 * @param node tree node from which the search starts
+	 * 
+	 * @return Returns a boolean. True if the tree contains the element, false if
+	 *         not.
+	 */
 	public boolean contains(E o, TreeNode<E> node) {
-		// Rekursive Variante
 		if (node == null)
 			return false;
 
 		if (node.getValue().equals(o)) {
-			return true; // Element gefunden.
+			return true;
 		} else if (o.compareTo(node.getValue()) < 0) {
-			// Suchschlüssel kleiner, also im linken Teilbaum weitersuchen.
+			// element is smaller than current value -> continue searching on the left side
 			return contains(o, node.getLeft());
 		} else {
-			// Suchschlüssel größer, also im rechtenTeilbaum weitersuchen.
+			// element is smaller than current value -> continue searching on the right side
 			return contains(o, node.getRight());
 		}
 	}
@@ -137,29 +148,33 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	}
 
 	/**
-	 * Überprüft, ob der Baum Elemente enthält.
+	 * AUFGABE 6
+	 * 
+	 * Examines if this tree contains elements.
 	 *
-	 * @return Wahr, wenn der Baum leer ist, falsch sonst.
+	 * @return Returns a boolean. True if tree contains elements, false if not.
 	 */
 	public boolean isEmpty() {
-		try {
-			return this.root.equals(null);
-		} catch (NullPointerException npe) {
-			return true;
-		}
+		return (this.root == null);
 	}
 
 	/**
-	 * Entfernt alle Elemente aus dem Baum.
+	 * AUFGABE 7
+	 * 
+	 * Removes all elements from this tree.
 	 */
 	public void clear() {
 		this.root = null;
 	}
 
 	/**
-	 * Bestimme die Höhe des Baums.
+	 * AUFGABE 8
+	 * 
+	 * Examines recursively the height of this tree.
+	 * 
+	 * @param node node of a tree
 	 *
-	 * @return
+	 * @return Returns the height of a tree as an integer value.
 	 */
 	public int height(TreeNode<E> node) {
 		if (node == null)

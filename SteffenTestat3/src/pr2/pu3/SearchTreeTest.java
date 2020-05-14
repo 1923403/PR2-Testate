@@ -203,15 +203,15 @@ class SearchTreeTest {
 		assertTrue(searchTree.contains2(180, searchTree.root));
 	}
 	
-	static SearchTree<Integer> searchTree = MyTest.searchTree;
-	
-	@Test
-	void testContains3() {
-		assertTrue(SearchTreeTest.searchTree.contains(40000000, MyTest.searchTree.root));
-	}
-	
-	@Test
-	void testContains4() {
-		assertTrue(SearchTreeTest.searchTree.contains2(40000000, MyTest.searchTree.root));
-	}
+//	static SearchTree<Integer> searchTree = MyTest.searchTree;
+//	
+//	@Test
+//	void testContains3() {
+//		assertTrue(SearchTreeTest.searchTree.contains(40000000, MyTest.searchTree.root));
+//	}
+//	
+//	@Test
+//	void testContains4() {
+//		assertTrue(SearchTreeTest.searchTree.contains2(40000000, MyTest.searchTree.root));
+//	}
 }

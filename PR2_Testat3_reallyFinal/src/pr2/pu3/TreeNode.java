@@ -114,8 +114,7 @@ public class TreeNode<E> {
 	/*
 	 * AUFGABE 4
 	 */
-	
-	
+
 //	Unsere Grundidee ist, den Baum Knoten für Knoten durchzugehen
 //	und sobald ein Unterschied auftritt false zurückzugeben.
 //	Erreicht der Algorithmus das Ende, wird true zurückgegeben.
@@ -131,21 +130,31 @@ public class TreeNode<E> {
 //	werden entsprechend die rechten Kindknoten untersucht.
 //	Wird bis hierhin kein Unterschied zwischen den beiden Objekten festgestellt, sind sie identisch
 //	und es wird true zurückgegeben!
-	
-	
-	/*
+
+	/**
 	 * AUFGABE 5
+	 * 
+	 * Examines recursively if this binary tree is identical to another binary tree.
+	 * 
+	 * @param otherNode node of another tree
+	 * 
+	 * @return Returns a boolean. True if both trees are identical, false if not
 	 */
 	public boolean equalStructure(TreeNode<E> otherNode) {
+		// check if value of this node differs from other node's value
 		if (this.getValue() != otherNode.getValue())
 			return false;
 
+		// check if left child node of this node differs from left child node of the
+		// other node
 		if (this.getLeft() != null && otherNode.getLeft() != null) {
 			if (!this.getLeft().equalStructure(otherNode.getLeft()))
 				return false;
 		} else if (this.getLeft() != null || otherNode.getLeft() != null)
 			return false;
 
+		// check if right child node of this node differs from right child node of the
+		// other node
 		if (this.getRight() != null && otherNode.getRight() != null) {
 			if (!this.getRight().equalStructure(otherNode.getRight()))
 				return false;
