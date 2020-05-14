@@ -83,7 +83,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	/*
 	 * AUFGABE 9
 	 */
-	public boolean contains(E o, TreeNode<?> node) {
+	public boolean contains(E o, TreeNode<E> node) {
 		if (node == null)
 			return false;
 		else if (node.getValue().equals(o))
@@ -146,7 +146,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 *
 	 * @return
 	 */
-	public int height(TreeNode<?> node) {
+	public int height(TreeNode<E> node) {
 		if (node == null)
 			return 0;
 		else {
