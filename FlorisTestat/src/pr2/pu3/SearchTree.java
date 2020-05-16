@@ -64,12 +64,17 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	    
 	    
 	    while (node != null) {
+	    	
 	        if (node.equals(o)) {
-	          return parent; 
+	        	
+	        	return parent; 
+	          
 	        } else if (o.getValue().compareTo(node.getValue()) < 0) {
-	          parent = node;
+	     
+	        	parent = node;
 	          node = node.getLeft();
 	        } else {
+	    	
 	        	parent = node;
 	        
 	          node = node.getRight();
@@ -78,6 +83,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	    
 	    
 	    }
+	    System.out.println("null");
 		return parent;    
 	  
   }
@@ -153,49 +159,64 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
    *
    * @return
    */
+  
+  
+  
+  
+
   public int height() {
 	System.out.println("test");
 	  TreeNode<E> node = root;
-	System.out.println();
 	  int height = 1;
 	  int tmp    = 1;
-	  int stepLeft = 0;
-	  int stepRight = 0;
+	 boolean passedLeft = false;
+	
+	  int rootcounter = 0;
 	  if(node == null) {
 		  return 0;
 	  }
-	  while(node.getLeft() != null || node.getRight() != null ) {
-	     while(node.getLeft() != null) {
-	    	 tmp++;
-	    	 stepLeft++;
-	    	 node = node.getLeft();
-	     }
-	     height = tmp;
-	     tmp = 0;
-	     while(stepLeft> 0) {
-	    	do {
-	    	 node = getParent(node);
-	    	 stepLeft--;
-	    	 if(stepRight > 0) {
-	    		 stepRight--;
-	    	 }
-	    	}while (stepRight > 0);
-	    	
-	    	while(node.getRight() != null) {
-	    		tmp++;
-	    		stepRight++;
-	    		node = node.getRight();
-	    	}
-	    	if(tmp > height) {
-	    		height = tmp;
-	    	}
-	    	tmp = 0;
-	    		
-	     }
+	  while(rootcounter < 3) {
+		 if(getParent(node) == null) {
+			 
+			  rootcounter++;
+		  }	
+		  if (node.getLeft() != null && passedLeft == false) {
+	
+			  tmp++;
+			  node = node.getLeft();
+			  
+		
+		  }
+		  else if (node.getRight() != null ) {
+			 
+			  tmp++;
+			  node = node.getRight();
+		 passedLeft = false;
+			
+		  }
+		  else  if (getParent(node) != null) {
+			
+			 
+			 if(node== getParent(node).getRight()&& getParent(getParent(node)) != null ) {
+			  node = getParent(getParent(node));
+			  tmp--;
+			  tmp--;
+			 }else {
+				 node = getParent((node));
+				 passedLeft = true;
+				 tmp--;
+			 }
+		  }
+			  if(tmp> height) {
+				  height = tmp;
+			  }
 	  }
-	  
-	  return height;
-  }
+ return height;
+				 
+			
+
+	  }
+
 
   public void printInorder() {
     if (!isEmpty()) {
@@ -207,7 +228,14 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
     // Noch nicht implementiert.
     return null;
   }
-
+  public static void main(String[] args) {
+	 var searchTree = new SearchTree<Integer>();
+	 System.out.println(searchTree.height());
+	 searchTree.add(100);
+	 searchTree.add(50);
+	 searchTree.add(150);
+	 System.out.println(searchTree.height());
+ }
 
 }
 
