@@ -163,44 +163,42 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
   
   
   
-
+/**
+ * 
+ * @param 
+ *  tmp : 
+ *  height 
+ * @return height
+ * <img src= "data:image/png;">
+ */
   public int height() {
-	System.out.println("test");
 	  TreeNode<E> node = root;
 	  int height = 1;
 	  int tmp    = 1;
 	 boolean passedLeft = false;
-	
 	  int rootcounter = 0;
 	  if(node == null) {
 		  return 0;
 	  }
 	  while(rootcounter < 3) {
-		 if(getParent(node) == null) {
-			 
+		 if(getParent(node) == null) {	 
 			  rootcounter++;
 		  }	
 		  if (node.getLeft() != null && passedLeft == false) {
-	
 			  tmp++;
-			  node = node.getLeft();
-			  
-		
-		  }
-		  else if (node.getRight() != null ) {
-			 
+			  node = node.getLeft();	  
+				  }
+		  else if (node.getRight() != null ) {	 
 			  tmp++;
 			  node = node.getRight();
-		 passedLeft = false;
-			
+		 passedLeft = false;	
 		  }
 		  else  if (getParent(node) != null) {
 			
-			 
 			 if(node== getParent(node).getRight()&& getParent(getParent(node)) != null ) {
 			  node = getParent(getParent(node));
-			  tmp--;
-			  tmp--;
+			  tmp= tmp-2;
+			  
 			 }else {
 				 node = getParent((node));
 				 passedLeft = true;
