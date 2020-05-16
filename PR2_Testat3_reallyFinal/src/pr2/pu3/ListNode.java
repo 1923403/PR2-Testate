@@ -84,9 +84,17 @@ public class ListNode<E> {
 		return value + " ";
 	}
 
-	/*
-	 * AUFGABE 1: Gibt Elemente der verketteten Liste in runde Klammern eingefasst
-	 * und durch Kommas von einander getrennt auf die Konsole aus.
+	/**
+	 * AUFGABE 1
+	 * 
+	 * Prints all elements of linked lists on the console.
+	 * 
+	 * @param element reference to an object of ListNode
+	 * 
+	 * @param list    stores element names as a String
+	 * 
+	 * @return Returns a String which displays all element names separated by commas
+	 *         and surrounded by brackets.
 	 */
 	public String toListString() {
 		var element = this;
@@ -103,9 +111,14 @@ public class ListNode<E> {
 		}
 	}
 
-	/*
+	/**
 	 * AUFGABE 2
 	 * 
+	 * Examines iteratively if a linked list contains a certain element.
+	 * 
+	 * @param element reference to an object of ListNode
+	 * 
+	 * @return Returns a boolean. True if the element is in the list, false if not.
 	 */
 	public boolean containsIter(E e) {
 		var element = this;
@@ -119,11 +132,12 @@ public class ListNode<E> {
 		return true;
 	}
 
-	/*
+	/**
 	 * AUFGABE 3
 	 * 
+	 * @return Returns a boolean. True if the element is in the list, false if not.
 	 */
-	public boolean contains(E e) {		
+	public boolean contains(E e) {
 
 		if (this.getHead() == e)
 			return true;
