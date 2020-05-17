@@ -63,10 +63,10 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 * @return Wahr, wenn Wert im Baum vorhanden ist, falsch sonst.
 	 */
 	public boolean contains(E o) {
-		return containsReturn(o, this.root);
+		return returnContains(o, this.root);
 	}
 
-	private boolean containsReturn(E o, TreeNode<E> node) {
+	private boolean returnContains(E o, TreeNode<E> node) {
 		if (node == null)
 			return false;
 
@@ -74,10 +74,10 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 			return true;
 		} else if (o.compareTo(node.getValue()) < 0) {
 			// element is smaller than current value -> continue searching on the left side
-			return containsReturn(o, node.getLeft());
+			return returnContains(o, node.getLeft());
 		} else {
 			// element is smaller than current value -> continue searching on the right side
-			return containsReturn(o, node.getRight());
+			return returnContains(o, node.getRight());
 		}
 	}
 
@@ -150,15 +150,15 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 * @return
 	 */
 	public int height() {
-		return heightReturn(this.root);
+		return returnHeight(this.root);
 	}
 
-	private int heightReturn(TreeNode<E> node) {
+	private int returnHeight(TreeNode<E> node) {
 		if (node == null)
 			return 0;
 		else {
-			int left = heightReturn(node.getLeft());
-			int right = heightReturn(node.getRight());
+			int left = returnHeight(node.getLeft());
+			int right = returnHeight(node.getRight());
 
 			if (left > right)
 				return (left + 1);
