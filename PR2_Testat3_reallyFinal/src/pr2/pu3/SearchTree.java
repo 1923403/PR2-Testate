@@ -62,41 +62,22 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 * @param o Objekt bzw. Suchschlüssel
 	 * @return Wahr, wenn Wert im Baum vorhanden ist, falsch sonst.
 	 */
-	public boolean contains(E o) {
-		// Iterative Variante
-		TreeNode<E> n = root; // Erzeuge Zeiger, der bei root beginnt.
-
-		while (n != null) {
-			if (n.getValue().equals(o)) {
-				return true; // Element gefunden.
-			} else if (o.compareTo(n.getValue()) < 0) {
-				// Suchschlüssel kleiner, also im linken Teilbaum weitersuchen.
-				n = n.getLeft();
-			} else {
-				// Suchschlüssel größer, also im rechtenTeilbaum weitersuchen.
-				n = n.getRight();
-			}
-		}
-		return false; // Suche zu Ende, Wert nicht gefunden.
-	}
-
-	/*
-	 * AUFGABE 9
-	 */
-//	public boolean contains(E o, TreeNode<E> node) {
-//		if (node == null)
-//			return false;
-//		else if (node.getValue().equals(o))
-//			return true;
-//		else {
-//			boolean left = contains(o, node.getLeft());
-//			boolean right = contains(o, node.getRight());
+//	public boolean contains(E o) {
+//		// Iterative Variante
+//		TreeNode<E> n = root; // Erzeuge Zeiger, der bei root beginnt.
 //
-//			if (left == true || right == true)
-//				return true;
-//			else
-//				return false;
+//		while (n != null) {
+//			if (n.getValue().equals(o)) {
+//				return true; // Element gefunden.
+//			} else if (o.compareTo(n.getValue()) < 0) {
+//				// Suchschlüssel kleiner, also im linken Teilbaum weitersuchen.
+//				n = n.getLeft();
+//			} else {
+//				// Suchschlüssel größer, also im rechtenTeilbaum weitersuchen.
+//				n = n.getRight();
+//			}
 //		}
+//		return false; // Suche zu Ende, Wert nicht gefunden.
 //	}
 
 	/**
@@ -110,7 +91,11 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 * @return Returns a boolean. True if the tree contains the element, false if
 	 *         not.
 	 */
-	public boolean contains(E o, TreeNode<E> node) {
+	public boolean contains(E o) {
+		return returnContains(o, this.root);
+	}
+
+	private boolean returnContains(E o, TreeNode<E> node) {
 		if (node == null)
 			return false;
 
@@ -118,10 +103,10 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 			return true;
 		} else if (o.compareTo(node.getValue()) < 0) {
 			// element is smaller than current value -> continue searching on the left side
-			return contains(o, node.getLeft());
+			return returnContains(o, node.getLeft());
 		} else {
 			// element is smaller than current value -> continue searching on the right side
-			return contains(o, node.getRight());
+			return returnContains(o, node.getRight());
 		}
 	}
 
@@ -176,12 +161,16 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 *
 	 * @return Returns the height of a tree as an integer value.
 	 */
-	public int height(TreeNode<E> node) {
+	public int height() {
+		return returnHeight(this.root);
+	}
+
+	private int returnHeight(TreeNode<E> node) {
 		if (node == null)
 			return 0;
 		else {
-			int left = height(node.getLeft());
-			int right = height(node.getRight());
+			int left = returnHeight(node.getLeft());
+			int right = returnHeight(node.getRight());
 
 			if (left > right)
 				return (left + 1);
