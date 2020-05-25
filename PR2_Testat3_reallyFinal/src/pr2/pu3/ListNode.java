@@ -123,7 +123,7 @@ public class ListNode<E> {
 	public boolean containsIter(E e) {
 		var element = this;
 
-		while (element.getHead() != e) {
+		while (!element.getHead().equals(e)) {
 			if (element.getTail() == null)
 				return false;
 			element = element.getTail();
@@ -139,7 +139,7 @@ public class ListNode<E> {
 	 */
 	public boolean contains(E e) {
 
-		if (this.getHead() == e)
+		if (this.getHead().equals(e))
 			return true;
 
 		if (this.getTail() != null)
