@@ -14,14 +14,14 @@ class SearchTreeTest {
 	@Test
 	void testIsEmpty() {
 		var searchTree = new SearchTree<Integer>();
-		assertTrue(searchTree.isEmpty());
+		assertTrue(searchTree.root.isEmpty());
 		searchTree.add(null);		
-		assertFalse(searchTree.isEmpty());
+		assertFalse(searchTree.root.isEmpty());
 		
 		var searchTree2 = new SearchTree<Integer>();
-		assertTrue(searchTree2.isEmpty());
+		assertTrue(searchTree2.root.isEmpty());
 		searchTree2.add(5);		
-		assertFalse(searchTree2.isEmpty());
+		assertFalse(searchTree2.root.isEmpty());
 	}
 
 	/*
@@ -30,11 +30,20 @@ class SearchTreeTest {
 	@Test
 	void testClear() {
 		var searchTree = new SearchTree<Integer>();
-		assertTrue(searchTree.isEmpty());
+		assertTrue(searchTree.root.isEmpty());
 		searchTree.add(1);
-		assertFalse(searchTree.isEmpty());
+		assertFalse(searchTree.root.isEmpty());
 		searchTree.clear();
-		assertTrue(searchTree.isEmpty());
+		assertTrue(searchTree.root.isEmpty());
+	}
+	@Test
+	void testClear() {
+		var searchTree = new SearchTree<Integer>();
+		assertTrue(searchTree.root.isEmpty());
+		searchTree.add(1);
+		assertFalse(searchTree.root.isEmpty());
+		searchTree.clear();
+		assertTrue(searchTree.root.isEmpty());
 	}
 
 	/*
@@ -144,5 +153,15 @@ class SearchTreeTest {
 		// level 4, right childNode of 175
 		searchTree.add(180);
 		assertTrue(searchTree.contains(180));
+		
+	}
+	@Test
+	void testSort(){
+		var searchTree = new SearchTree<Integer>();
+		searchTree.add(100);
+		searchTree.add(50);
+		searchTree.add(150);
+		assertEquals("[50, 100, 150]",searchTree.sort().toString());
+		
 	}
 }

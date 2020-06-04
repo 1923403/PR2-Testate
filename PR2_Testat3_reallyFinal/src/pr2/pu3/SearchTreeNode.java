@@ -17,6 +17,19 @@ public class SearchTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 	public SearchTreeNode(E v) {
 		this(v, null, null);
 	}
+	
+	public boolean isEmpty() {
+		return (this.value == null);//todo rekursiv den ganzen Baum checken
+	}
+	
+	/**
+	 * AUFGABE 7
+	 * 
+	 * Removes all elements from this tree.
+	 */
+	public void clear() {
+		this.value = null; //todo rekursiv den ganzen Baum löschen
+	}
 
 	/**
 	 * Erzeuge einen neuen Binärbaum(-Knoten), entspricht tree().

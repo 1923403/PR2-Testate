@@ -1,6 +1,8 @@
 package pr2.pu3;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Ein binärer Suchbaum.
@@ -139,9 +141,9 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 *
 	 * @return Returns a boolean. True if tree contains elements, false if not.
 	 */
-	public boolean isEmpty() {
-		return (this.root == null);
-	}
+//	public boolean isEmpty() {
+//		return (this.root == null);
+//	}
 
 	/**
 	 * AUFGABE 7
@@ -149,7 +151,7 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	 * Removes all elements from this tree.
 	 */
 	public void clear() {
-		this.root = null;
+//		this.root = null;
 	}
 
 	/**
@@ -182,6 +184,20 @@ public class SearchTree<E extends Comparable<E>> implements Set<E> {
 	public void printInorder() {
 		if (!isEmpty()) {
 			root.printInorder();
+		}
+	}
+
+	public List<E> sort() {
+		var list = new ArrayList<E>();
+		fillList(list, this.root);
+		return list;
+	}
+
+	public void fillList(ArrayList<E> list, TreeNode<E> o) {
+		if (o != null) {
+			fillList(list, o.getLeft());
+			list.add(o.getValue());
+			fillList(list, o.getRight());
 		}
 	}
 
