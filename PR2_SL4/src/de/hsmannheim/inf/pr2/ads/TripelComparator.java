@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class TripelComparator<T extends Tripel<E, F, G>, E extends Comparable<E>, F extends Comparable<F>, G extends Comparable<G>>
 		implements Comparator<T> {
-	
+
 	private final int sortKey;
 
 	public TripelComparator(int sortKey) {
