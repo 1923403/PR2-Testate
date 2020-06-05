@@ -4,44 +4,61 @@ import java.util.Comparator;
 
 public class TripelComparator<T extends Tripel<E, F, G>, E extends Comparable<E>, F extends Comparable<F>, G extends Comparable<G>>
 		implements Comparator<T> {
-	final int i;
+	
+	private final int sortKey;
 
-	public TripelComparator(int i) {
-		this.i = i;
+	public TripelComparator(int sortKey) {
+		this.sortKey = sortKey;
 	}
 
 	@Override
-	public int compare(T t1, T t2) {
-		switch (i) {
+	public int compare(T o1, T o2) {
+
+		switch (sortKey) {
 		case 1:
-			if (t1.u.compareTo(t2.u) != 0) 
-				return t1.u.compareTo(t2.u);
-			 else if (t1.v.compareTo(t2.v) != 0) 
-				return t1.v.compareTo(t2.v);
-			 else
-				return t1.w.compareTo(t2.w);
-
-		
+			if (o1.u.compareTo(o2.u) != 0)
+				return o1.u.compareTo(o2.u);
+			else if (o1.v.compareTo(o2.v) != 0)
+				return o1.v.compareTo(o2.v);
+			else
+				return o1.w.compareTo(o2.w);
 		case 2:
-			System.out.println("i ist 2");
-			break;
+			if (o1.u.compareTo(o2.u) != 0)
+				return o1.u.compareTo(o2.u) * -1;
+			else if (o1.v.compareTo(o2.v) != 0)
+				return o1.v.compareTo(o2.v) * -1;
+			else
+				return o1.w.compareTo(o2.w) * -1;
 		case 3:
-			System.out.println("i ist 3");
-			break;
+			if (o1.v.compareTo(o2.v) != 0)
+				return o1.v.compareTo(o2.v);
+			else if (o1.u.compareTo(o2.u) != 0)
+				return o1.u.compareTo(o2.u);
+			else
+				return o1.w.compareTo(o2.w);
 		case 4:
-			System.out.println("i ist 4");
-			break;
+			if (o1.v.compareTo(o2.v) != 0)
+				return o1.v.compareTo(o2.v) * -1;
+			else if (o1.u.compareTo(o2.u) != 0)
+				return o1.u.compareTo(o2.u) * -1;
+			else
+				return o1.w.compareTo(o2.w) * -1;
 		case 5:
-			System.out.println("i ist 5");
-			break;
+			if (o1.w.compareTo(o2.w) != 0)
+				return o1.w.compareTo(o2.w);
+			else if (o1.v.compareTo(o2.v) != 0)
+				return o1.v.compareTo(o2.v);
+			else
+				return o1.u.compareTo(o2.u);
 		case 6:
-			System.out.println("i ist 6");
-			break;
+			if (o1.w.compareTo(o2.w) != 0)
+				return o1.w.compareTo(o2.w) * -1;
+			else if (o1.v.compareTo(o2.v) != 0)
+				return o1.v.compareTo(o2.v) * -1;
+			else
+				return o1.u.compareTo(o2.u) * -1;
 		default:
-			System.out.println("Fehler");
-			break;
+			return 0;
 		}
-		return 0;
 	}
-
 }
