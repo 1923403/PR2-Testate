@@ -47,7 +47,7 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 		if (!this.isSearchTree())
 			return false;
 
-		if (this.left!=null&&this.right!=null&&Math.abs((this.left.height() - this.right.height())) > 1) {
+		if (this.left != null && this.right != null && Math.abs((this.left.height() - this.right.height())) > 1) {
 			return false;
 		}
 		// rekursion links
