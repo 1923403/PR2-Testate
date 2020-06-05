@@ -8,37 +8,35 @@ import org.junit.jupiter.api.Test;
 public class AVLTreeNodeIsSearchTreeTesting {
 
 	@Test
-	void isSearchTreeTestingTrue() {
+	void isSearchTreeTestingTrueSimple() {
 		var avlTreeNode1 = new AVLTreeNode<>(2, new AVLTreeNode<>(1), new AVLTreeNode<>(3));
 		assertTrue(avlTreeNode1.isSearchTree());
-
 	}
 
 	@Test
-	void isSearchTreeTestingFalse() {
+	void isSearchTreeTestingFalseSimple() {
 		var avlTreeNode1 = new AVLTreeNode<>(7, new AVLTreeNode<>(9), new AVLTreeNode<>(3));
 		assertFalse(avlTreeNode1.isSearchTree());
-
 	}
 
+	
 	@Test
-	void isSearchTreeTesting() {
-		var avlTreeNode1 = new AVLTreeNode<>(1, new AVLTreeNode<>(6, new AVLTreeNode<>(7), new AVLTreeNode<>(8)),
-				new AVLTreeNode<>(9, new AVLTreeNode<>(10), new AVLTreeNode<>(11)));
-		assertFalse(avlTreeNode1.isSearchTree());
-	}
-
-	@Test
-	void isSearchTreeTestingRekursionLinks() {
+	void isSearchTreeTestingRekursionLinksFalse() {
 		var avlTreeNode1 = new AVLTreeNode<>(10, new AVLTreeNode<>(5, new AVLTreeNode<>(7), new AVLTreeNode<>(8)),
 				new AVLTreeNode<>(15));
 		assertFalse(avlTreeNode1.isSearchTree());
 	}
+	@Test
+	void isSearchTreeTestingRekursionLinksTrue() {
+		var avlTreeNode1 = new AVLTreeNode<>(10, new AVLTreeNode<>(5, new AVLTreeNode<>(5), new AVLTreeNode<>(8)),
+				new AVLTreeNode<>(15));
+		assertTrue(avlTreeNode1.isSearchTree());
+	}
 
 	@Test
-	void isSearchTreeTestingRekursionRechts() {
+	void isSearchTreeTestingRekursionRechtsTrue() {
 		var avlTreeNode1 = new AVLTreeNode<>(10, new AVLTreeNode<>(5, new AVLTreeNode<>(3), new AVLTreeNode<>(8)),
-				new AVLTreeNode<>(15, new AVLTreeNode<>(3), new AVLTreeNode<>(8)));
-		assertFalse(avlTreeNode1.isSearchTree());
+				new AVLTreeNode<>(15, new AVLTreeNode<>(13), new AVLTreeNode<>(17)));
+		assertTrue(avlTreeNode1.isSearchTree());
 	}
 }
