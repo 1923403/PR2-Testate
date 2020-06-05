@@ -12,21 +12,26 @@ public class IsMinHeapTreeTesting {
 		assertTrue(heapTreeNode1.isMinHeapTree());
 
 	}
+
 	@Test
 	void isMinHeapTreeFalse() {
 		var heapTreeNode1 = new HeapTreeNode<>(9, new HeapTreeNode<>(7), new HeapTreeNode<>(3));
 		assertFalse(heapTreeNode1.isMinHeapTree());
 
 	}
+
 	@Test
 	void isMinHeapTreeTrue2() {
-		var heapTreeNode1 = new HeapTreeNode<>(-10, new HeapTreeNode<>(7,new HeapTreeNode<>(7),new HeapTreeNode<>(10)), new HeapTreeNode<>(3));
+		var heapTreeNode1 = new HeapTreeNode<>(-10,
+				new HeapTreeNode<>(7, new HeapTreeNode<>(7), new HeapTreeNode<>(10)), new HeapTreeNode<>(3));
 		assertTrue(heapTreeNode1.isMinHeapTree());
 
 	}
+
 	@Test
 	void isMinHeapTreeFalse2() {
-		var heapTreeNode1 = new HeapTreeNode<>(-10, new HeapTreeNode<>(7,new HeapTreeNode<>(-17),new HeapTreeNode<>(10)), new HeapTreeNode<>(3));
+		var heapTreeNode1 = new HeapTreeNode<>(-10,
+				new HeapTreeNode<>(7, new HeapTreeNode<>(-17), new HeapTreeNode<>(10)), new HeapTreeNode<>(3));
 		assertFalse(heapTreeNode1.isMinHeapTree());
 
 	}
