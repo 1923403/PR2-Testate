@@ -138,18 +138,6 @@ public class HeapTreeNode<E extends Comparable<E>> extends TreeNode<E> implement
 
 	@Override
 	public Iterator<HeapTreeNode<E>> iterator() {
-		return new HeapTreeNodeIterator(this.array());
-	}
-
-	public static void main(String[] args) {
-		var htn = new HeapTreeNode<>(10, new HeapTreeNode<>(5, new HeapTreeNode<>(3), new HeapTreeNode<>(8)),
-				new HeapTreeNode<>(15, new HeapTreeNode<>(3), new HeapTreeNode<>(8)));
-		System.out.println(htn.iterator().next());
-		htn.iterator().next();
-		System.out.println(htn.iterator().next());
-		htn.iterator().next();
-		System.out.println(htn.iterator().next());
-//		System.out.println(htn.iterator().hasNext());
-//		System.out.println(htn.iterator().next());
+		return new HeapTreeNodeIterator<E>(this.array());
 	}
 }

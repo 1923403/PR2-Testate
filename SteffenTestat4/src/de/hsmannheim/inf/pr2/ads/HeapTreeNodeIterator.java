@@ -3,12 +3,12 @@ package de.hsmannheim.inf.pr2.ads;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class HeapTreeNodeIterator implements Iterator<HeapTreeNode<? extends Comparable<?>>> {
+public class HeapTreeNodeIterator<E extends Comparable<E>> implements Iterator<HeapTreeNode<E>> {
 
-	private ArrayList<HeapTreeNode<?>> arrayList;
+	private ArrayList<HeapTreeNode<E>> arrayList;
 	private int index = 0;
 
-	public HeapTreeNodeIterator(ArrayList<HeapTreeNode<?>> arrayList) {
+	public HeapTreeNodeIterator(ArrayList<HeapTreeNode<E>> arrayList) {
 		this.arrayList = arrayList;
 	}
 
@@ -18,7 +18,7 @@ public class HeapTreeNodeIterator implements Iterator<HeapTreeNode<? extends Com
 	}
 
 	@Override
-	public HeapTreeNode<?> next() {
+	public HeapTreeNode<E> next() {
 		var result = arrayList.get(index++);
 		return result;
 	}
