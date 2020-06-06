@@ -12,7 +12,7 @@ import java.util.Iterator;
  *
  * @param <E> represents a data type which implements Comparable<>
  */
-public class HeapTreeNode<E extends Comparable<E>> extends TreeNode<E> implements Iterable<E> {
+public class HeapTreeNode<E extends Comparable<E>> extends TreeNode<E> implements Iterable<HeapTreeNode<E>> {
 
 	protected HeapTreeNode<E> left;
 	protected HeapTreeNode<E> right;
@@ -97,44 +97,59 @@ public class HeapTreeNode<E extends Comparable<E>> extends TreeNode<E> implement
 		return true;
 	}
 
-	// Strategie: Wir verwenden ArrayList als queue, mit Index
-	// gehen wir sie durch, fügen immer beide Kinder hinzu
-	// und rufen rekursiv am nächsten Index wieder auf
 	/**
+	 * AUFGABE 5<br>
+	 * <br>
+	 * Creates an ArrayList<> of this tree's values.
 	 * 
-	 * @return
+	 * @return an ArrayList<> of heap tree values
 	 */
 	public ArrayList<HeapTreeNode<E>> array() {
-
-		// Initialisierung
 		var arrayList = new ArrayList<HeapTreeNode<E>>(0);
+		var index = 0;
 		arrayList.add(this);
-		int index = 0;
 		return arrayRecursion(arrayList, index);
 	}
 
+	/**
+	 * Creates array()'s ArrayList<> recursively.
+	 * 
+	 * @param arrayList
+	 * @param index     of the element which child nodes have to be added to the
+	 *                  ArrayList<>
+	 * 
+	 * @return an ArrayList<> of heap tree values
+	 */
 	private ArrayList<HeapTreeNode<E>> arrayRecursion(ArrayList<HeapTreeNode<E>> arrayList, int index) {
-
-		// Abbruchbedingung
+		// return ArrayList<> if there is no left child node
 		if (this.left == null)
 			return arrayList;
 
 		arrayList.add(this.left);
 
-		// Abbruchbedingung
+		// return ArrayList<> if there is no right child node
 		if (this.right == null)
 			return arrayList;
 
 		arrayList.add(this.right);
 
 		return arrayList.get(++index).arrayRecursion(arrayList, index);
-
 	}
 
 	@Override
-	public Iterator<E> iterator() {
-
-		return new HeapTreeNodeIterator<E>(this);
+	public Iterator<HeapTreeNode<E>> iterator() {
+		return new HeapTreeNodeIterator(this.array());
 	}
 
+	public static void main(String[] args) {
+		var htn = new HeapTreeNode<>(10, new HeapTreeNode<>(5, new HeapTreeNode<>(3), new HeapTreeNode<>(8)),
+				new HeapTreeNode<>(15, new HeapTreeNode<>(3), new HeapTreeNode<>(8)));
+		System.out.println(htn.iterator().next());
+		htn.iterator().next();
+		System.out.println(htn.iterator().next());
+		htn.iterator().next();
+		System.out.println(htn.iterator().next());
+//		System.out.println(htn.iterator().hasNext());
+//		System.out.println(htn.iterator().next());
+	}
 }

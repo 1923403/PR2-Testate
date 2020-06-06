@@ -37,6 +37,7 @@ public class HeapTreeNodeConvertToArrayListTesting {
 		var heapTreeNode1 = new HeapTreeNode<>(10, new HeapTreeNode<>(5, new HeapTreeNode<>(3), new HeapTreeNode<>(8)),
 				new HeapTreeNode<>(15, new HeapTreeNode<>(3), new HeapTreeNode<>(8)));
 		
+		System.out.println(heapTreeNode1.array().toString());
 	}
 
 }
