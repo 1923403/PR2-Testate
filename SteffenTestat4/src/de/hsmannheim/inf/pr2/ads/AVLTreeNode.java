@@ -9,11 +9,6 @@ package de.hsmannheim.inf.pr2.ads;
  *
  * @param <E> represents a data type which implements Comparable<>
  */
-/**
- * @author Steffen
- *
- * @param <E>
- */
 public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 
 	protected AVLTreeNode<E> left = null;
@@ -22,7 +17,7 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 	/**
 	 * Creates an instance of AVLTreeNode<>.
 	 * 
-	 * @param value value of a data type which implements Comparable<>
+	 * @param value this node's value of the type TreeNode<>
 	 */
 	public AVLTreeNode(E value) {
 		super(value);
@@ -46,7 +41,7 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 	 * 
 	 * @return true if this tree is a search tree
 	 */
-	boolean isSearchTree() {
+	public boolean isSearchTree() {
 		// return false if left child > this node's value
 		if (this.left != null && this.value.compareTo(this.left.value) < 0)
 			return false;
@@ -85,7 +80,7 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 	 * 
 	 * @return true if there is no bigger number than this node's value
 	 */
-	boolean checkLeftSubtree(E value) {
+	private boolean checkLeftSubtree(E value) {
 		// return false if value of left child > this node's value
 		if (this.left != null)
 			if (this.left.value.compareTo(value) > 0)
@@ -117,7 +112,7 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 	 * 
 	 * @return true if there is no bigger number than this node's value
 	 */
-	boolean checkRightSubtree(E value) {
+	private boolean checkRightSubtree(E value) {
 		// return false if value of left child < this node's value
 		if (this.left != null)
 			if (this.left.value.compareTo(value) < 0)
@@ -154,7 +149,7 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 			return false;
 
 		// return false if height from left and right subtree differs more than 1
-		if (this.left != null && this.right != null && Math.abs((this.left.height() - this.right.height())) > 1)
+		if (this.left != null && this.right != null && Math.abs((this.left.avlHeight() - this.right.avlHeight())) > 1)
 			return false;
 
 		// recursion left child
@@ -175,18 +170,19 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 	 * 
 	 * @return height of a subtree
 	 */
-	public int height() {
+	private int avlHeight() {
 		var leftHeight = 0;
 		var rightHeight = 0;
 
 		// determine height of left subtree recursively
 		if (this.left != null)
-			leftHeight = this.left.height();
+			leftHeight = this.left.avlHeight();
 
 		// determine height of right subtree recursively
 		if (this.right != null)
-			rightHeight = this.right.height();
+			rightHeight = this.right.avlHeight();
 
+		// return height
 		if (leftHeight > rightHeight)
 			return (leftHeight + 1);
 		else
