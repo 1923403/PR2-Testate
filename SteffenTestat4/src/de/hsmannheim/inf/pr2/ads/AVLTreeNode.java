@@ -29,6 +29,12 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 		else if (this.right != null && this.value.compareTo(this.right.value) > 0)
 			return false;
 
+		if (this.left != null && !this.left.checkLeftSubtree(this.value))
+			return false;
+
+		if (this.right != null && !this.right.checkRightSubtree(this.value))
+			return false;
+
 		// rekursion links
 		if (this.left != null) {
 			if (!this.left.isSearchTree())
@@ -40,6 +46,48 @@ public class AVLTreeNode<E extends Comparable<E>> extends TreeNode<E> {
 				return false;
 		}
 		// kein Fehler gefunden!
+		return true;
+	}
+
+	boolean checkLeftSubtree(E value) {
+
+		if (this.left != null)
+			if (this.left.value.compareTo(value) > 0)
+				return false;
+
+		if (this.right != null)
+			if (this.right.value.compareTo(value) > 0)
+				return false;
+
+		if (this.left != null)
+			if (!this.left.checkLeftSubtree(value))
+				return false;
+
+		if (this.right != null)
+			if (!this.right.checkLeftSubtree(value))
+				return false;
+
+		return true;
+	}
+
+	boolean checkRightSubtree(E value) {
+
+		if (this.left != null)
+			if (this.left.value.compareTo(value) < 0)
+				return false;
+
+		if (this.right != null)
+			if (this.right.value.compareTo(value) < 0)
+				return false;
+
+		if (this.left != null)
+			if (!this.left.checkRightSubtree(value))
+				return false;
+
+		if (this.right != null)
+			if (!this.right.checkRightSubtree(value))
+				return false;
+
 		return true;
 	}
 
