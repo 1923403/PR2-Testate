@@ -26,6 +26,7 @@ public class AVLTreeNodeIsSearchTreeTesting {
 				new AVLTreeNode<>(15));
 		assertFalse(avlTreeNode1.isSearchTree());
 	}
+
 	@Test
 	void isSearchTreeTestingRekursionLinksTrue() {
 		var avlTreeNode1 = new AVLTreeNode<>(10, new AVLTreeNode<>(5, new AVLTreeNode<>(5), new AVLTreeNode<>(8)),

@@ -1,111 +1,127 @@
 package de.hsmannheim.inf.pr2.ads;
 
 import static org.junit.Assert.assertEquals;
-
 import java.util.ArrayList;
 import java.util.Collections;
-
 import org.junit.jupiter.api.Test;
 
+/**
+ * AUFGABE 1<br>
+ * <br>
+ * JUnit tests for TripelComparator.
+ * 
+ * @author Gruppe 25: Floris (1921233), Raphael (1926543), Steffen (1923403)
+ */
 public class TripelComparatorTesting {
 
-	// Alle drei Sortierkriterien sind abgedeckt
-	// zuerst nach u aufsteigend, dann nach v aufsteigend und dann nach w
-	// aufsteigend
+	// u ascending, v ascending, w ascending
 	@Test
 	void sortTripel1() {
 		var intList = new ArrayList<Tripel<Integer, Integer, Integer>>();
-		intList.add(new Tripel<>(1, 2, 3));
-		intList.add(new Tripel<>(3, 2, 1));
-		intList.add(new Tripel<>(2, 2, 2));
-		intList.add(new Tripel<>(3, 1, 7));
-		intList.add(new Tripel<>(2, 2, 0));
+
+		intList.add(new Tripel<>(2, 0, 0));
+		intList.add(new Tripel<>(1, 0, 0));
+
+		intList.add(new Tripel<>(0, 2, 0));
+		intList.add(new Tripel<>(0, 1, 0));
+
+		intList.add(new Tripel<>(0, 0, 2));
+		intList.add(new Tripel<>(0, 0, 1));
+
 		Collections.sort(intList,
 				new TripelComparator<Tripel<Integer, Integer, Integer>, Integer, Integer, Integer>(1));
-		assertEquals("[123, 220, 222, 317, 321]", intList.toString());
+		assertEquals("[001, 002, 010, 020, 100, 200]", intList.toString());
 	}
 
-	// Alle drei Sortierkriterien sind abgedeckt
-	// zuerst nach u absteigend, dann nach v absteigend und dann nach w absteigend
+	// u descending, v descending, w descending
 	@Test
 	void sortTripel2() {
 		var intList = new ArrayList<Tripel<Integer, Integer, Integer>>();
-		intList.add(new Tripel<>(1, 2, 3));
-		intList.add(new Tripel<>(3, 2, 1));
-		intList.add(new Tripel<>(2, 2, 2));
-		intList.add(new Tripel<>(3, 1, 7));
-		intList.add(new Tripel<>(2, 2, 0));
+
+		intList.add(new Tripel<>(1, 0, 0));
+		intList.add(new Tripel<>(2, 0, 0));
+
+		intList.add(new Tripel<>(0, 1, 0));
+		intList.add(new Tripel<>(0, 2, 0));
+
+		intList.add(new Tripel<>(0, 0, 1));
+		intList.add(new Tripel<>(0, 0, 2));
+
 		Collections.sort(intList,
 				new TripelComparator<Tripel<Integer, Integer, Integer>, Integer, Integer, Integer>(2));
-		assertEquals("[321, 317, 222, 220, 123]", intList.toString());
+		assertEquals("[200, 100, 020, 010, 002, 001]", intList.toString());
 	}
 
-	// Alle drei Sortierkriterien sind abgedeckt
-	// zuerst nach v aufsteigend, dann nach u aufsteigend und dann nach w
-	// aufsteigend
+	// v ascending, u ascending, w ascending
 	@Test
 	void sortTripel3() {
 		var intList = new ArrayList<Tripel<Integer, String, Integer>>();
-		intList.add(new Tripel<>(1, "e", 3));
-		intList.add(new Tripel<>(3, "f", 1));
-		intList.add(new Tripel<>(2, "f", 2));
-		intList.add(new Tripel<>(3, "a", 7));
-		intList.add(new Tripel<>(3, "a", 0));
+
+		intList.add(new Tripel<>(0, "b", 0));
+		intList.add(new Tripel<>(0, "a", 0));
+
+		intList.add(new Tripel<>(2, "x", 0));
+		intList.add(new Tripel<>(1, "x", 0));
+
+		intList.add(new Tripel<>(0, "x", 2));
+		intList.add(new Tripel<>(0, "x", 1));
+
 		Collections.sort(intList, new TripelComparator<Tripel<Integer, String, Integer>, Integer, String, Integer>(3));
-		assertEquals("[3a0, 3a7, 1e3, 2f2, 3f1]", intList.toString());
+		assertEquals("[0a0, 0b0, 0x1, 0x2, 1x0, 2x0]", intList.toString());
 	}
 
-	// Alle drei Sortierkriterien sind abgedeckt
-	// zuerst nach v absteigend, dann nach u absteigend und dann nach w absteigend
+	// v descending, u descending, w descending
 	@Test
 	void sortTripel4() {
 		var intList = new ArrayList<Tripel<Integer, String, Double>>();
-		intList.add(new Tripel<>(1, "e", 3.7));
-		intList.add(new Tripel<>(3, "f", 1.2));
 
-		intList.add(new Tripel<>(2, "f", 2.7));
-		intList.add(new Tripel<>(3, "f", 7.3));
+		intList.add(new Tripel<>(0, "a", 0.0));
+		intList.add(new Tripel<>(0, "b", 0.0));
 
-		intList.add(new Tripel<>(3, "a", 0.4));
-		intList.add(new Tripel<>(3, "a", 0.9));
+		intList.add(new Tripel<>(1, "x", 0.0));
+		intList.add(new Tripel<>(2, "x", 0.0));
+
+		intList.add(new Tripel<>(0, "x", 1.5));
+		intList.add(new Tripel<>(0, "x", 2.5));
+
 		Collections.sort(intList, new TripelComparator<Tripel<Integer, String, Double>, Integer, String, Double>(4));
-		assertEquals("[3f7.3, 3f1.2, 2f2.7, 1e3.7, 3a0.9, 3a0.4]", intList.toString());
+		assertEquals("[2x0.0, 1x0.0, 0x2.5, 0x1.5, 0b0.0, 0a0.0]", intList.toString());
 	}
 
-	// Alle drei Sortierkriterien sind abgedeckt
-	// zuerst nach w aufsteigend, dann nach v aufsteigend und dann nach u
-	// aufsteigend
+	// w ascending, v ascending, u ascending
 	@Test
 	void sortTripel5() {
 		var intList = new ArrayList<Tripel<Boolean, String, Integer>>();
-		intList.add(new Tripel<>(true, "e", 3));
-		intList.add(new Tripel<>(false, "f", 1));
 
-		intList.add(new Tripel<>(false, "f", 2));
-		intList.add(new Tripel<>(true, "a", 2));
+		intList.add(new Tripel<>(true, "x", 2));
+		intList.add(new Tripel<>(true, "x", 1));
 
+		intList.add(new Tripel<>(true, "b", 0));
 		intList.add(new Tripel<>(true, "a", 0));
-		intList.add(new Tripel<>(false, "a", 0));
-		Collections.sort(intList, new TripelComparator<Tripel<Boolean, String, Integer>, Boolean, String, Integer>(5));
 
-		assertEquals("[falsea0, truea0, falsef1, truea2, falsef2, truee3]", intList.toString());
+		intList.add(new Tripel<>(true, "x", 0));
+		intList.add(new Tripel<>(false, "x", 0));
+
+		Collections.sort(intList, new TripelComparator<Tripel<Boolean, String, Integer>, Boolean, String, Integer>(5));
+		assertEquals("[truea0, trueb0, falsex0, truex0, truex1, truex2]", intList.toString());
 	}
 
-	// Alle drei Sortierkriterien sind abgedeckt
-	// zuerst nach w absteigend, dann nach v absteigend und dann nach u absteigend
+	// w descending, v descending, u descending
 	@Test
 	void sortTripel6() {
 		var intList = new ArrayList<Tripel<Boolean, String, Integer>>();
-		intList.add(new Tripel<>(true, "e", 1));
-		intList.add(new Tripel<>(false, "f", 3));
 
-		intList.add(new Tripel<>(false, "a", 2));
-		intList.add(new Tripel<>(true, "f", 2));
+		intList.add(new Tripel<>(true, "x", 1));
+		intList.add(new Tripel<>(true, "x", 2));
 
-		intList.add(new Tripel<>(false, "a", 0));
 		intList.add(new Tripel<>(true, "a", 0));
+		intList.add(new Tripel<>(true, "b", 0));
+
+		intList.add(new Tripel<>(false, "x", 0));
+		intList.add(new Tripel<>(true, "x", 0));
+
 		Collections.sort(intList, new TripelComparator<Tripel<Boolean, String, Integer>, Boolean, String, Integer>(6));
-		assertEquals("[falsef3, truef2, falsea2, truee1, truea0, falsea0]", intList.toString());
+		assertEquals("[truex2, truex1, truex0, falsex0, trueb0, truea0]", intList.toString());
 	}
 
 }
