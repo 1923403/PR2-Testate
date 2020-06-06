@@ -136,6 +136,12 @@ public class HeapTreeNode<E extends Comparable<E>> extends TreeNode<E> implement
 		return arrayList.get(++index).arrayRecursion(arrayList, index);
 	}
 
+	/**
+	 * AUFGABE 6<br>
+	 * <br>
+	 * Creates an iterator to iterate over an ArrayList<> containing elements of the
+	 * type HeapTreeNode<>.
+	 */
 	@Override
 	public Iterator<HeapTreeNode<E>> iterator() {
 		return new HeapTreeNodeIterator<E>(this.array());
