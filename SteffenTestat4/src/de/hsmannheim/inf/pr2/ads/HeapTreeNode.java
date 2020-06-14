@@ -100,9 +100,9 @@ public class HeapTreeNode<E extends Comparable<E>> extends TreeNode<E> implement
 	/**
 	 * AUFGABE 5<br>
 	 * <br>
-	 * Creates an ArrayList<> of this tree's values.
+	 * Creates an ArrayList<> of this tree's elements.
 	 * 
-	 * @return an ArrayList<> of heap tree values
+	 * @return an ArrayList<> of heap tree elements
 	 */
 	public ArrayList<HeapTreeNode<E>> array() {
 		var arrayList = new ArrayList<HeapTreeNode<E>>(0);
@@ -118,7 +118,7 @@ public class HeapTreeNode<E extends Comparable<E>> extends TreeNode<E> implement
 	 * @param index     of the element which child nodes have to be added to the
 	 *                  ArrayList<>
 	 * 
-	 * @return an ArrayList<> of heap tree values
+	 * @return an ArrayList<> of heap tree elements
 	 */
 	private ArrayList<HeapTreeNode<E>> arrayRecursion(ArrayList<HeapTreeNode<E>> arrayList, int index) {
 		// return ArrayList<> if there is no left child node
